@@ -7,16 +7,15 @@
 <body id="main">
     <header id="header">
         <nav id="nav-bar">
-            <ul>
-                <li>
-                    <a href="#">
-                        <img 
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Shuttle.svg/970px-Shuttle.svg.png"
-                            alt="brand-logo"
-                            id="header-img"
-                        >
-                    </a>
-                </li>
+            <a href="#">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Shuttle.svg/970px-Shuttle.svg.png"
+                    alt="brand-logo"
+                    id="header-img"
+                >
+            </a>
+
+            <ul id="nav-list">
                 <li><a class="nav-link" href="#aardvark">Aardvark</a></li>
                 <li><a class="nav-link" href="#bear">Bear</a></li>
                 <li><a class="nav-link" href="#crocodile">Crocodile</a></li>
@@ -32,8 +31,8 @@
         </video>
 
         <!-- FORM -->
-        <h4 id="email-label" for="email">Subscribe to my email list</h4>
         <form id="form" action="https://www.freecodecamp.com/email-submit">
+            <h4 id="email-label" for="email">Subscribe to my email list</h4>
             <input id="email" type="email" name="email" size="37" placeholder="youremail@example.com" required>
             <input id="submit" type="submit" value="Email Me"></input>
         </form>
