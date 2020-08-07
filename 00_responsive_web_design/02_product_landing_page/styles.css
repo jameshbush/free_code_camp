@@ -1,0 +1,74 @@
+header {
+    position: fixed;
+    top: 0px;
+    background-color: rgba(255,255,255,1);
+    width: 100%;
+    border-bottom: 2px darkgray solid;
+    height: 50px;
+}
+
+#header-img {
+    height: 30px;
+    width: auto;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline;
+    padding: 0 5px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: darkgray;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+#hero {
+    padding-top: 53px;
+    margin: 0;
+    width: 100%;
+}
+
+#hero #video {
+    width: 100%;
+}
+
+#hero #form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#hero #email-label {
+    margin: 10px 0 5px 0;
+}
+#hero #form input {
+    margin-right: 8px;
+}
+
+main {
+    max-width: 600px;
+    margin: auto;
+}
+
+main .section {
+    padding-top: 30px;
+    margin: 0;
+}
+main .section p {
+    font-size: 16px;
+    line-height: 22px;
+}
+@media (max-width: 300px) {
+    nav {
+        font-size: small;
+    }
+}
