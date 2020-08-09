@@ -1,36 +1,35 @@
 body#main {
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    max-width: 500px;
-    padding: 1em;
-    margin: auto;
-  }
-  
-  #title {
-    text-align: center;
-  }
-  
-  #img-div {
-    max-width: 300px;
-    margin: auto;
-    font-size: 0.666em;
-  }
-  /*
-    horizontally centered image
-  */
-  #img-div img#image {
-    display: block;
-    margin: auto;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 5px;
-  }
-  #img-div figcaption#img-caption {
-    text-align: center;
-  }
-  
-  #tribute-info {
-    margin-top: 33px;
-    text-align: justify;
-    text-justify: inter-word;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  max-width: 500px;
+  padding: 1em;
+  margin: auto;
+}
 
-  }
+#title {
+  text-align: center;
+}
+
+#img-div {
+  max-width: 300px;
+  margin: auto;
+  font-size: 0.666em;
+}
+/*
+  horizontally centered image
+*/
+#img-div img#image {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+}
+#img-div figcaption#img-caption {
+  text-align: center;
+}
+
+#tribute-info {
+  margin-top: 33px;
+  text-align: justify;
+  text-justify: inter-word;
+}
