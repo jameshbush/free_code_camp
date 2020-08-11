@@ -1,0 +1,15 @@
+nav#navbar {
+    float: left;
+    width: 5em;
+}
+
+main#main-doc {
+    float: inline-start;
+    width: 30em;
+}
+
+@media(max-width: 855.33px) {
+    main#main-doc {
+        margin-top: 10px;
+    }
+}
