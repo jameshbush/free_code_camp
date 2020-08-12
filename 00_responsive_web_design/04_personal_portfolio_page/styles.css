@@ -1,0 +1,39 @@
+section#welcome-section {
+    height: 100vh;
+    background: #444;
+    color: #DDD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section#welcome-section h1 {
+    text-align: center;
+    max-width: 66%;
+}
+
+nav#navbar {
+    position: fixed;
+    width: 100%;
+    background-color: #222;
+}
+
+a.nav-link:link {
+    text-decoration: none;
+    font-size: 30px;
+}
+a.nav-link:link {
+    color: #EEE;
+}
+a.nav-link:visited {
+    color: #EEE;
+}
+a.nav-link:hover {
+    color: aquamarine;
+}
+
+@media (max-width: 500px) {
+    body {
+        background: #00FF00;
+    }
+}
