@@ -1,0 +1,35 @@
+<head>
+    <link href="../../utils/prism.css" rel="stylesheet"></link>
+</head>
+
+<body>
+    <main>
+        <h1>Palindrome Checker</h1>
+        <pre><code id="palindrome" class="lang-js"></code></pre>
+        <pre><code id="palindrome-test" class="lang-js"></code></pre>
+        <h2>Test Result: <span id=palindrome-test-result></span></h2>
+    </main>
+
+    <script src="./palindrome_checker.js"></script>
+    <script src="../../utils/prism.js"></script>
+    <script>
+        (function printMsg() {
+            let node
+            node = document.getElementById("palindrome")
+            node.innerHTML = "\n" + String(palindrome)
+
+            node = document.getElementById("palindrome-test")
+            node.innerHTML = "\n" + String(palindromeTest)
+
+            let test_result = "✅"
+            try {
+                palindromeTest()
+            } catch (er) {
+                test_result = "❗️"
+            }
+
+            node = document.getElementById("palindrome-test-result")
+            node.innerText = test_result
+        })()
+    </script>
+</body>
