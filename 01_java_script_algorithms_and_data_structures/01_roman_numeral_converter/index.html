@@ -1,0 +1,34 @@
+<head>
+    <link href="../../utils/prism.css" rel="stylesheet"></link>
+</head>
+
+<body>
+    <main>
+        <h1>Roman Numeral Converter</h1>
+        <pre><code id="roman-numeral" class="lang-js"></code></pre>
+        <pre><code id="roman-numeral-test" class="lang-js"></code></pre>
+        <h2>Test Result: <span id=roman-numeral-test-result></span></h2>
+    </main>
+
+    <script src="./01_roman_numeral_converter.js"></script>
+    <script src="../../utils/prism.js"></script>
+    <script>
+        (function printMsg() {
+            var node = document.getElementById("roman-numeral")
+            node.innerHTML = "\n" + String(convertToRoman)
+
+            var node = document.getElementById("roman-numeral-test")
+            node.innerHTML = "\n" + String(convertToRomanTest)
+
+            let test_result = "✅"
+            try {
+                convertToRomanTest()
+            } catch (er) {
+                test_result = "❗️"
+            }
+
+            node = document.getElementById("roman-numeral-test-result")
+            node.innerText = test_result
+        })()
+    </script>
+</body>
