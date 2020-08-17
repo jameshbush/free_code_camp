@@ -1,15 +1,11 @@
-const AlphaNumGlobalRegex = /[a-zA-Z0-9]/g;
-
 function palindrome(str) {
-    const arr = str.toLowerCase().match(AlphaNumGlobalRegex);
+    const AlphaNumRegex = /[a-zA-Z0-9]/g;
+    const arr = str.toLowerCase().match(AlphaNumRegex);
 
-    for (let i = 0; i < Math.floor(arr.length / 2); i++) {
-        const j = arr.length - 1 - i;
-
+    for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
         if (arr[i] !== arr[j]) {
             return false;
         }
-
     }
 
     return true;
