@@ -1,0 +1,35 @@
+<head>
+    <link href="../../utils/prism.css" rel="stylesheet"></link>
+</head>
+
+<body>
+    <main>
+        <h1>Caesar's Cipher</h1>
+        <pre><code id="rot13" class="lang-js"></code></pre>
+        <pre><code id="rot13-test" class="lang-js"></code></pre>
+        <h2>Test Result: <span id=rot13-test-result></span></h2>
+    </main>
+
+    <script src="./02_caesars_cipher.js"></script>
+    <script src="../../utils/prism.js"></script>
+    <script>
+        (function printMsg() {
+            let node
+            node = document.getElementById("rot13")
+            node.innerHTML = "\n" + String(rot13)
+
+            node = document.getElementById("rot13-test")
+            node.innerHTML = "\n" + String(rot13Test)
+
+            let test_result = "✅"
+            try {
+                rot13Test()
+            } catch (er) {
+                test_result = "❗️"
+            }
+
+            node = document.getElementById("rot13-test-result")
+            node.innerText = test_result
+        })()
+    </script>
+</body>
