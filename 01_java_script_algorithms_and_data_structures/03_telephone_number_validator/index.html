@@ -1,0 +1,35 @@
+<head>
+    <link href="../../utils/prism.css" rel="stylesheet"></link>
+</head>
+
+<body>
+    <main>
+        <h1>Telephone Number Validator</h1>
+        <pre><code id="telephone-check" class="lang-js"></code></pre>
+        <pre><code id="telephone-check-test" class="lang-js"></code></pre>
+        <h2>Test Result: <span id=telephone-check-test-result></span></h2>
+    </main>
+
+    <script src="./telephone_number_validator.js"></script>
+    <script src="../../utils/prism.js"></script>
+    <script>
+        (function printMsg() {
+            let node
+            node = document.getElementById("telephone-check")
+            node.innerHTML = "\n" + String(telephoneCheck)
+
+            node = document.getElementById("telephone-check-test")
+            node.innerHTML = "\n" + String(telephoneCheckTest)
+
+            let test_result = "✅"
+            try {
+                telephoneCheckTest()
+            } catch (er) {
+                test_result = "❗️"
+            }
+
+            node = document.getElementById("telephone-check-test-result")
+            node.innerText = test_result
+        })()
+    </script>
+</body>
