@@ -1,30 +1,37 @@
 function checkCashRegister(price, cash, cashInDrawer) {
     const MONIES_ORDER = ['ONE HUNDRED', 'TWENTY', 'TEN', 'FIVE', 'ONE', 'QUARTER', 'DIME', 'NICKEL', 'PENNY']
     const MONEY_VALUES = { 'ONE HUNDRED': 10000, 'TWENTY': 2000, 'TEN': 1000, 'FIVE': 500, 'ONE': 100, 'QUARTER': 25, 'DIME': 10, 'NICKEL': 5, 'PENNY': 1, }
-    const TOTAL = 'TOTAL'
-    const DRAWER_VALUES = cashInDrawer.reduce((acc, [name, value]) => {
+    const TOTAL = 'total'
+    const REMAINING = 'remaining'
+
+    const amountPayable = (cash - price) * 100
+    const moneyDue = { TOTAL: amountPayable, REMAINING: amountPayable }
+    const drawerTotals = cashInDrawer.reduce((acc, [name, value]) => {
         acc[name] = value * 100
-        acc[TOTAL] += acc[name]
+        acc[TOTAL] += value * 100
+        acc[REMAINING] += value * 100
         return acc
     }, { TOTAL: 0 })
-    const moneyDueTotal = (cash - price) * 100
-    let moneyDueRemaining = moneyDueTotal
-    const change = []
 
-    for (const key of MONIES_ORDER) {
+    const change = []
+    for (const moneyKey of MONIES_ORDER) {
         let count = 0
-        while (((DRAWER_VALUES[key]) / MONEY_VALUES[key]) - count > 0) {
-            const nextValue = MONEY_VALUES[key] * (count + 1)
-            if (moneyDueRemaining - nextValue < 0) { break }
+        // while money remains
+        while (((drawerTotals[moneyKey]) / MONEY_VALUES[moneyKey]) - count > 0) {
+            const incrementValue = MONEY_VALUES[moneyKey] * (count + 1)
+            if (incrementValue > moneyDue[REMAINING]) {
+                break
+            }
             count++
         }
-        moneyDueRemaining -= count * MONEY_VALUES[key]
-        change.push([key, count * MONEY_VALUES[key] / 100])
+
+        moneyDue[REMAINING] -= count * MONEY_VALUES[moneyKey]
+        change.push([moneyKey, count * MONEY_VALUES[moneyKey] / 100])
     }
 
-    if (moneyDueRemaining !== 0) {
+    if (moneyDue[REMAINING] !== 0) {
         return { status: "INSUFFICIENT_FUNDS", change: [] }
-    } else if (DRAWER_VALUES[TOTAL] === moneyDueTotal) {
+    } else if (drawerTotals[TOTAL] === moneyDue[TOTAL]) {
         return { status: "CLOSED", change: change.reverse() }
     } else {
         return { status: "OPEN", change: change.filter(([, value]) => value) }
