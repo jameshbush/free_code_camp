@@ -7,7 +7,7 @@
         <h1>Cash Register</h1>
         <pre><code id="cash-register-check" class="lang-js"></code></pre>
         <pre><code id="cash-register-check-test" class="lang-js"></code></pre>
-        <h2>Test Result: <span id=cash-register-check-test-result>Check console (deep equality check to come)</span></h2>
+        <h2>Test Result: <span id=cash-register-check-test-result></span></h2>
     </main>
 
     <script src="./04_cash_register.js"></script>
@@ -21,11 +21,15 @@
             node = document.getElementById("cash-register-check-test")
             node.innerHTML = "\n" + String(checkCashRegisterTest)
 
+            let test_result = "✅"
             try {
                 checkCashRegisterTest()
             } catch (er) {
-                console.log(err)
+                test_result = "❗️"
             }
+
+            node = document.getElementById("cash-register-check-test-result")
+            node.innerText = test_result
         })()
     </script>
 </body>
