@@ -1,0 +1,31 @@
+<head>
+    <link href="../../utils/prism.css" rel="stylesheet"></link>
+</head>
+
+<body>
+    <main>
+        <h1>Cash Register</h1>
+        <pre><code id="cash-register-check" class="lang-js"></code></pre>
+        <pre><code id="cash-register-check-test" class="lang-js"></code></pre>
+        <h2>Test Result: <span id=cash-register-check-test-result>Check console (deep equality check to come)</span></h2>
+    </main>
+
+    <script src="./04_cash_register.js"></script>
+    <script src="../../utils/prism.js"></script>
+    <script>
+        (function printMsg() {
+            let node
+            node = document.getElementById("cash-register-check")
+            node.innerHTML = "\n" + String(checkCashRegister)
+
+            node = document.getElementById("cash-register-check-test")
+            node.innerHTML = "\n" + String(checkCashRegisterTest)
+
+            try {
+                checkCashRegisterTest()
+            } catch (er) {
+                console.log(err)
+            }
+        })()
+    </script>
+</body>
