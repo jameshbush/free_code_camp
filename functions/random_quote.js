@@ -40,7 +40,7 @@ exports.handler = function (event, context) {
 
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
   return {
-      statusCode: 200,
-      body: quote,
+    statusCode: 200,
+    body: JSON.stringify(quote),
   }
 };
