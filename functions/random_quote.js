@@ -1,13 +1,7 @@
 var fs = require("fs");
 var path = require("path");
 
-var jsonPath = path.join(
-  __dirname,
-  "..",
-  "02_front_end_libraries",
-  "00_random_quote_machine",
-  "quotes.json"
-);
+var jsonPath = path.join(__dirname, "quotes.json");
 var quotesJson = fs.readFileSync(jsonPath, "utf8");
 
 exports.handler = function (event, context) {
