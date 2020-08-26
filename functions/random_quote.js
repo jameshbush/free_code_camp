@@ -9,7 +9,12 @@ exports.handler = function (event, context) {
       statusCode: 200,
       body: JSON.stringify(quote),
     };
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    console.log(e.message);
+    return {
+      statusCode: 500,
+      body: JSON.stringify(e.message),
+    };
+
   }
 };
