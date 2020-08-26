@@ -47,9 +47,11 @@ exports.handler = function (event, context) {
     const index = Math.floor(Math.random() * quotes.quotes.length);
     const quote = quotes.quotes[index];
 
+    const body = JSON.stringify(quote)
+    console.log(`response body: ${body}`)
     return {
       statusCode: 200,
-      body: JSON.stringify(quote),
+      body,
     };
   } catch (e) {
     console.log(e.message);
