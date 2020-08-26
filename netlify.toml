@@ -5,4 +5,6 @@
 [build]
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "functions/"
-  command = "#"
+[dev]
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions/"
