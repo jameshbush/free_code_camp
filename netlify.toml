@@ -3,6 +3,16 @@
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
 [build]
+    functions = "functions"
+
+[dev]
   # Directory with the serverless Lambda functions to deploy to AWS.
-  functions = "functions/"
-  command = "#"
+  functions = "functions"
+
+[[redirects]]
+    from = "/api/*"
+    to= "/.netlify/functions/:splat"
+    status = 200
+
+[template.environment]
+  SECRET_KEY = "Don't write me here!"
