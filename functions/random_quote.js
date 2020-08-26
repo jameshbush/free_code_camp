@@ -1,5 +1,4 @@
-exports.handler = function (event, context) {
-  context.callbackWaitsForEmptyEventLoop = false;
+exports.handler = async (event, context) => {
   const quotes = {
     quotes: [
       {
@@ -18,21 +17,15 @@ exports.handler = function (event, context) {
           "The computer programmer is a creator of universes for which he alone is the lawgiver. No playwright, no stage director, no emperor, however powerful, has ever exercised such absolute authority to arrange a stage or field of battle and to command such unswervingly dutiful actors or troops.",
         author: "Joseph Weizenbaum",
       },
-      {
-        text: "It is not enough for code to work.",
-        author:
-          "Robert C. Martin, Clean Code: A Handbook of Agile Software Craftsmanship",
-      },
     ],
   };
-
   try {
     console.log("queryStringParameters", event.queryStringParameters);
     const index = Math.floor(Math.random() * quotes.quotes.length);
     const quote = quotes.quotes[index];
     const body = JSON.stringify(quote);
-
     console.log(`response body: ${body}`);
+
     return { statusCode: 200, body };
   } catch (e) {
     console.log(e.message);
