@@ -1,6 +1,6 @@
 const API_ENDPOINT = `../../api/random_quote`;
 
-async function tellDadJoke() {
+async function getRandomQuote() {
   fetch(API_ENDPOINT)
     .then((res) => res.json())
     .then(({ text, author }) => {
@@ -10,4 +10,5 @@ async function tellDadJoke() {
     .catch((error) => ({ statusCode: 422, body: String(error) }));
 }
 
-tellDadJoke();
+getRandomQuote();
+document.getElementById("new-quote").addEventListener("click", getRandomQuote);
