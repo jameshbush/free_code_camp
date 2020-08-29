@@ -6,6 +6,9 @@ async function getRandomQuote() {
     .then(({ text, author }) => {
       document.getElementById("text").innerHTML = text;
       document.getElementById("author").innerHTML = `${author}`;
+      document.getElementById(
+        "tweet-quote"
+      ).href = `https://twitter.com/intent/tweet?via=jameshbush&text=jameshbush.com ${text} --${author}`;
     })
     .catch((error) => ({ statusCode: 422, body: String(error) }));
 }
