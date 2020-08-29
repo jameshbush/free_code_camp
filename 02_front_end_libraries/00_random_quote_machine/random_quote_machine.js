@@ -5,7 +5,7 @@ async function getRandomQuote() {
     .then((res) => res.json())
     .then(({ text, author }) => {
       document.getElementById("text").innerHTML = text;
-      document.getElementById("author").innerHTML = author;
+      document.getElementById("author").innerHTML = `${author}`;
     })
     .catch((error) => ({ statusCode: 422, body: String(error) }));
 }
