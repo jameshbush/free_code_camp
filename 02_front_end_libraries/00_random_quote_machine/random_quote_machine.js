@@ -1,13 +1,13 @@
-// const API_ENDPOINT = "https://icanhazdadjoke.com/";
-const API_ENDPOINT = "http://127.0.0.1:8888/.netlify/functions/random_quote";
+const API_ENDPOINT = `../../api/random_quote`;
 
 async function tellDadJoke() {
-    const joke = await fetch(API_ENDPOINT, { headers: { "Accept": "application/json" } })
-        .then(response => response.json())
-        .then(data => ({ statusCode: 200, body: data.joke }))
-        .catch(error => ({ statusCode: 422, body: String(error) }));
-
-    document.getElementById('text').innerHTML = joke.body;
+  fetch(API_ENDPOINT)
+    .then((res) => res.json())
+    .then(({ text, author }) => {
+      document.getElementById("text").innerHTML = text;
+      document.getElementById("author").innerHTML = author;
+    })
+    .catch((error) => ({ statusCode: 422, body: String(error) }));
 }
 
 tellDadJoke();
