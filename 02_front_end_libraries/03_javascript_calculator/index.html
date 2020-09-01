@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        font-size: 4em;
+        background: black;
+        color: white;
+      }
+      .input {
+        background: darkmagenta;
+        border: 1px solid gold;
+        border-radius: 16px;
+        text-align: center;
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1 class="text-center">JavaScript Calculator</h1>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="display" class="text-right">0</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3"><div id="clear" class="input">C</div></div>
+        <div class="col-xs-3"><div id="zero" class="input">0</div></div>
+        <div class="col-xs-3"><div id="decimal" class="input">.</div></div>
+        <div class="col-xs-3"><div id="equals" class="input">=</div></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4"><div id="seven" class="input">7</div></div>
+        <div class="col-xs-4"><div id="eight" class="input">8</div></div>
+        <div class="col-xs-4"><div id="nine" class="input">9</div></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4"><div id="four" class="input">4</div></div>
+        <div class="col-xs-4"><div id="five" class="input">5</div></div>
+        <div class="col-xs-4"><div id="six" class="input">6</div></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4"><div id="one" class="input">1</div></div>
+        <div class="col-xs-4"><div id="two" class="input">2</div></div>
+        <div class="col-xs-4"><div id="three" class="input">3</div></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3"><div id="add" class="input">+</div></div>
+        <div class="col-xs-3"><div id="subtract" class="input">-</div></div>
+        <div class="col-xs-3"><div id="multiply" class="input">*</div></div>
+        <div class="col-xs-3"><div id="divide" class="input">/</div></div>
+      </div>
+    </div>
+
+    <script src="./javascript_calculator.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
