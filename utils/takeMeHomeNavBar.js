@@ -67,7 +67,7 @@ const pathNames = [
 ];
 
 const containerStyle = `display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between;`;
-const childStyle = `width: 100px; height: 100px;`;
+const childStyle = `width: 100px; height: 100px; text-align: center`;
 const currentPathName = document.location.pathname; //.slice(1);
 const currentPathIndex = pathNames
   .map((el) => el.pathName)
