@@ -20,6 +20,7 @@
   const $breakDecrement = document.getElementById("break-decrement");
   const $sessionIncrement = document.getElementById("session-increment");
   const $sessionDecrement = document.getElementById("session-decrement");
+  const $beep = document.getElementById("beep");
 
   let timeLeft;
   let breakLength;
@@ -37,44 +38,39 @@
 
   const reset = () => {
     toggleOff();
-
     sessionLength = DEFAULT_SESSION_LENGTH;
     breakLength = DEFAULT_BREAK_LENGTH;
-    if (isSession) {
-      timeLeft = sessionLength;
-    } else {
-      timeLeft = breakLength;
-    }
-
+    startSession();
+    stopAudio();
     render();
   };
 
   const breakIncrement = () => {
-    if (breakLength + ONE_MINUTE <= SIXTY_MINUTES) {
-      breakLength += ONE_MINUTE;
-      render();
-    }
+    if (breakLength + ONE_MINUTE > SIXTY_MINUTES) return;
+    breakLength += ONE_MINUTE;
+    if (!isSession) timeLeft += ONE_MINUTE;
+    render();
   };
 
   const sessionIncrement = () => {
-    if (sessionLength + ONE_MINUTE <= SIXTY_MINUTES) {
-      sessionLength += ONE_MINUTE;
-      render();
-    }
+    if (sessionLength + ONE_MINUTE > SIXTY_MINUTES) return;
+    sessionLength += ONE_MINUTE;
+    if (isSession) timeLeft += ONE_MINUTE;
+    render();
   };
 
   const breakDecriment = () => {
-    if (breakLength - ONE_MINUTE > 0) {
-      breakLength -= ONE_MINUTE;
-      render();
-    }
+    if (breakLength - ONE_MINUTE <= 0) return;
+    breakLength -= ONE_MINUTE;
+    if (!isSession) timeLeft -= ONE_MINUTE;
+    render();
   };
 
   const sessionDecriment = () => {
-    if (sessionLength - ONE_MINUTE > 0) {
-      sessionLength -= ONE_MINUTE;
-      render();
-    }
+    if (sessionLength - ONE_MINUTE <= 0) return;
+    sessionLength -= ONE_MINUTE;
+    if (isSession) timeLeft -= ONE_MINUTE;
+    render();
   };
 
   const timeLeftDecirment = () => {
@@ -85,6 +81,8 @@
       } else {
         startSession();
       }
+    } else if (timeLeft === 0) {
+      startAudio();
     }
     render();
   };
@@ -101,6 +99,16 @@
     isSession = true;
   };
 
+  const startAudio = () => {
+    stopAudio();
+    $beep.play();
+  };
+
+  const stopAudio = () => {
+    $beep.pause();
+    $beep.currentTime = 0;
+  };
+
   const toggle = async () => {
     if (timer) {
       toggleOff();
@@ -110,12 +118,14 @@
   };
 
   const toggleOn = () => {
+    $start_stop.innerText = "Pause";
     if (timer === null) {
       timer = setInterval(timeLeftDecirment, 1000);
     }
   };
 
   const toggleOff = () => {
+    $start_stop.innerText = "Start";
     if (timer) {
       clearInterval(timer);
       timer = null;
@@ -125,32 +135,24 @@
   const displaySeconds = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-
-    const secondsFormatted =
-      String(seconds).slice(0, 3).length == 2
-        ? String(seconds).slice(0, 3)
-        : "0" + String(seconds).slice(0, 2);
-
-    const minutesFormatted =
-      String(minutes).slice(0, 3).length == 2
-        ? String(minutes).slice(0, 3)
-        : "0" + String(minutes).slice(0, 2);
-
-    return `${minutesFormatted}:${secondsFormatted}`;
+    return `${formatTime(minutes)}:${formatTime(seconds)}`;
   };
 
-  displayMinutes = (time) => String(time / 60);
+  const formatTime = (time) => {
+    const str = String(time).slice(0, 3);
+    if (str.length === 2) {
+      return str;
+    }
+    return `0${str}`;
+  };
+
+  const displayMinutes = (time) => String(time / 60);
 
   const render = () => {
     $timeLeft.innerHTML = displaySeconds(timeLeft);
     $breakLength.innerHTML = displayMinutes(breakLength);
     $sessionLength.innerHTML = displayMinutes(sessionLength);
-    //     console.log(
-    //       `timeLeft: ${timeLeft},
-    // breakLength: ${breakLength},
-    // sessionLength: ${sessionLength},
-    // runner: ${timer},`
-    //     );
+    // console.log(`t:${timeLeft}, b:${breakLength}, s:${sessionLength}`);
   };
 
   $start_stop.addEventListener("click", toggle);

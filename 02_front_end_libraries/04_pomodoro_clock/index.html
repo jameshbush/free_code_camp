@@ -39,6 +39,7 @@
       <div class="row">
         <h1 class="text-center">Pomodoro Clock</h1>
       </div>
+
       <div class="row">
         <div class="col-xs-4">
           <div id="timer-label" class="description">Session:</div>
@@ -53,17 +54,22 @@
           <div id="break-length" class="description">5</div>
         </div>
       </div>
+
       <div class="row">
-        <div class="col-xs-4" id="start_stop"><button class="btn control">Start/Stop</button></div>
-        <div class="col-xs-4" id="session-increment"><button class="btn control">Session +1</button></div>
-        <div class="col-xs-4" id="break-increment"><button class="btn control">Break +1</button></div>
+        <div class="col-xs-4">
+        <button id="start_stop" class="btn control">Start</button>
+        <button id="reset" class="btn control">Reset</button>
       </div>
-      <div class="row">
-        <div class="col-xs-4" id="reset"><button class="btn control">Reset</button></div>
-        <div class="col-xs-4" id="session-decrement"><button class="btn control">Session -1</button></div>
-        <div class="col-xs-4" id="break-decrement"><button class="btn control">Break -1</button></div>
+      <div class="col-xs-4">
+        <div id="session-decrement" class="control"><button class="btn">-</button></div>
+        <div id="session-increment" class="control"><button class="btn">+</button></div>
       </div>
-    </div>
+      <div class="col-xs-4">
+        <div id="break-decrement" class="control"><button class="btn">-</button></div>
+        <div id="break-increment" class="control"><button class="btn">+</button></div>
+      </div>
+
+    <audio id="beep" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Villeneuve-le-Comte_-_Cloche_de_l%27%C3%A9glise_Notre-Dame-de-la-Nativit%C3%A9.ogg" preload="auto"></audio>
     <script src="./pomodoro_clock.js"></script>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   </body>
