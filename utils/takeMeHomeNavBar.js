@@ -79,9 +79,9 @@ const nextPathIndex = (currentPathIndex + 1) % pathNames.length;
 const html = `
 <nav>
   <div style="${containerStyle}">
-    <a href="../..${pathNames[previousPathIndex].pathName}" style="${childStyle}"><h1>Previous</h1></a>
+    <a href="../..${pathNames[previousPathIndex].pathName}" style="${childStyle}"><h1><</h1></a>
     <a href="../../index.html" style="${childStyle}"><h1>Home</h1></a>
-    <a href="../..${pathNames[nextPathIndex].pathName}" style="${childStyle}"><h1>Next</h1></a>
+    <a href="../..${pathNames[nextPathIndex].pathName}" style="${childStyle}"><h1>></h1></a>
   </div>
 </nav>
 `;
