@@ -1,34 +1,63 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Trubute Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-<head>
-  <title>Trubute Page</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+  <body id="main">
+    <!-- <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    ></script> -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
-<body id="main">
-  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <div id="root"></div>
+    <script type="text/babel">
+      const element = <h1>hello world!</h1>;
+      ReactDOM.render(element, document.getElementById("root"));
+    </script>
 
-  <h1 id="title">James H. Bush</h1>
+    <div>
+      <h1 id="title">James H. Bush</h1>
+      <div id="img-div">
+        <img
+          src="https://avatars1.githubusercontent.com/u/17484767"
+          alt="headshot"
+          id="image"
+        />
+        <figcaption id="img-caption">
+          Photo taken at James' graduation from The Iron Yard in 2016
+        </figcaption>
+      </div>
+      <div id="tribute-info">
+        <p>This is James' (aka Jim's) Free Code Camp curriculum.</p>
+        <p>
+          Jim loves using his technical skills to help people achieve their
+          goals. Creating systems brings joy to his heart. He enjoys the art of
+          computer programming and solving problems. Whether it's a learning
+          project or a major business application, he always brings the same
+          high level of dedication and focus to his craft.
+        </p>
+      </div>
+      <a id="tribute-link" href="https://github.com/jameshbush" target="_blank"
+        >GitHub</a
+      >
+    </div>
 
-  <div id="img-div">
-    <img src="https://avatars1.githubusercontent.com/u/17484767" alt="headshot" id="image">
-    <figcaption id="img-caption">Photo taken at James' graduation from The Iron Yard in 2016</figcaption>
-  </div>
-
-  <div id="tribute-info">
-    <p>
-      This is James' (aka Jim's) Free Code Camp curriculum.
-    </p>
-    <p>
-      Jim loves using his technical skills to help people achieve their goals.
-      Creating systems brings joy to his heart.
-      He enjoys the art of computer programming and solving problems.
-      Whether it's a learning project or a major business application,
-      he always brings the same high level of dedication and focus to his craft.
-    </p>
-  </div>
-
-  <script src="../../../utils/takeMeHomeNavBar.js"></script>
-  <a id="tribute-link" href="https://github.com/jameshbush" target="_blank">GitHub</a>
-</body>
+    <script src="../../../utils/takeMeHomeNavBar.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
