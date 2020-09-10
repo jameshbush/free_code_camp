@@ -67,7 +67,7 @@ const pathNames = [
 ];
 
 const containerStyle = `display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between;`;
-const childStyle = `width: 100px; height: 100px; text-align: center`;
+const childStyle = `width: 99px; height: 66px; text-align: center`;
 const currentPathName = document.location.pathname; //.slice(1);
 const currentPathIndex = pathNames
   .map((el) => el.pathName)
@@ -85,4 +85,8 @@ const html = `
   </div>
 </nav>
 `;
-document.getElementsByTagName("h1")[0].insertAdjacentHTML("beforebegin", html);
+document.addEventListener("DOMContentLoaded", function () {
+  (
+    document.getElementsByTagName("h1")[0] || document.getElementById("root")
+  ).insertAdjacentHTML("beforebegin", html);
+});

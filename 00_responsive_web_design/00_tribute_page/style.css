@@ -3,6 +3,12 @@ body#main {
   max-width: 500px;
   padding: 1em;
   margin: auto;
+  line-height: 133%;
+}
+
+h1 {
+  font-size: 1.6em;
+  padding: 3mm;
 }
 
 #title {
@@ -14,22 +20,35 @@ body#main {
   margin: auto;
   font-size: 0.666em;
 }
-/*
-  horizontally centered image
-*/
+
+/* horizontally centered image */
 #img-div img#image {
   display: block;
-  margin: auto;
   max-width: 100%;
   height: auto;
   margin-bottom: 5px;
+  border-radius: 15px;
+  box-shadow: 6px 6px 3px #aaaaaa;
 }
+
 #img-div figcaption#img-caption {
   text-align: center;
+  font-size: 1.3em;
 }
 
 #tribute-info {
   margin-top: 33px;
   text-align: justify;
   text-justify: inter-word;
+}
+
+#tribute-link div {
+  display: inline-block;
+  padding: 6px 6px 0 0;
+  font-size: 1.5em;
+}
+
+#github-logo {
+  height: 0.9em;
+  width: 0.9em;
 }
