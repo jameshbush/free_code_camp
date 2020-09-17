@@ -13,8 +13,12 @@
 
 [[redirects]]
     from = "/api/*"
-    to= "/.netlify/functions/:splat"
+    to = "/.netlify/functions/:splat"
     status = 200
 
 [template.environment]
   SECRET_KEY = "Don't write me here!"
+
+[build.environment]
+  YARN_VERSION = "1.22.5"
+  NODE_VERSION = "12.18.2"
