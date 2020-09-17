@@ -9,7 +9,8 @@ node_modules
 coverage
 
 # production
-build
+/build
+/built-lambda
 
 # misc
 .DS_Store

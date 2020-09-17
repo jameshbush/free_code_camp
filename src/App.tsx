@@ -1,8 +1,7 @@
 import React from "react";
 import "./App.css";
 
-interface IProps {
-}
+interface IProps {}
 
 interface IState {
   msg: string | null;
@@ -23,15 +22,12 @@ class App extends React.Component<IProps, IState> {
           <button
             onClick={() => {
               this.setState({ loading: true });
-              fetch("/.netlify/functions/hello")
+              fetch("/api/hello")
                 .then((response) => response.json())
-                .then((json) =>
-                  this.setState({ loading: false, msg: json.msg })
-                );
+                .then(({ msg }) => this.setState({ loading: false, msg }));
             }}
           >
-            {/* {this.state.loading ? 'Loading...' : 'Click me'} */}
-            Click
+            {this.state.loading ? "Loading..." : "Click me"}
           </button>
         </header>
       </div>
