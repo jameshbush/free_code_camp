@@ -20,5 +20,6 @@
   SECRET_KEY = "Don't write me here!"
 
 [build.environment]
+  # https://docs.netlify.com/configure-builds/environment-variables/#netlify-configuration-variables
   YARN_VERSION = "1.22.5"
   NODE_ENV = "12.18.2"

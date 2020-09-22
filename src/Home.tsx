@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="text-center">Home Page</h1>
+import React from "react";
+import { Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+interface IProps {}
+
+export default function Home(props: IProps) {
+  return (
+    <Container>
+      <h1 className="text-center">Home Page</h1>
       <h2>00 Responsive Web Design</h2>
       <p>
         The initial projects cover basic HTML & CSS. I greatly improved my
@@ -41,23 +25,17 @@
           </a>
         </li>
         <li>
-          <a
-            href="./00_responsive_web_design/02_product_landing_page/index.html"
-          >
+          <a href="./00_responsive_web_design/02_product_landing_page/index.html">
             02 Project Landing Page
           </a>
         </li>
         <li>
-          <a
-            href="./00_responsive_web_design/03_technical_documentation/index.html"
-          >
+          <a href="./00_responsive_web_design/03_technical_documentation/index.html">
             03 Technical Documentation
           </a>
         </li>
         <li>
-          <a
-            href="./00_responsive_web_design/04_personal_portfolio_page/index.html"
-          >
+          <a href="./00_responsive_web_design/04_personal_portfolio_page/index.html">
             04 Personal Portfolio
           </a>
         </li>
@@ -66,42 +44,32 @@
       <p>
         The second project dives into the JavaScript programming language. I was
         already comfortable with ES6, as well as common data structures, so
-        these brain-teasers were mostly a review. By the way, if the
-        check box is green, that means the tests are passing.
+        these brain-teasers were mostly a review. By the way, if the check box
+        is green, that means the tests are passing.
       </p>
       <ul>
         <li>
-          <a
-            href="./01_java_script_algorithms_and_data_structures/00_palendrome_checker/index.html"
-          >
+          <a href="./01_java_script_algorithms_and_data_structures/00_palendrome_checker/index.html">
             00 Palindrome Checker
           </a>
         </li>
         <li>
-          <a
-            href="./01_java_script_algorithms_and_data_structures/01_roman_numeral_converter/index.html"
-          >
+          <a href="./01_java_script_algorithms_and_data_structures/01_roman_numeral_converter/index.html">
             01 Roman Numeral Converter
           </a>
         </li>
         <li>
-          <a
-            href="./01_java_script_algorithms_and_data_structures/02_caesars_cipher/index.html"
-          >
+          <a href="./01_java_script_algorithms_and_data_structures/02_caesars_cipher/index.html">
             02 Caesar's Cipher
           </a>
         </li>
         <li>
-          <a
-            href="./01_java_script_algorithms_and_data_structures/03_telephone_number_validator/index.html"
-          >
+          <a href="./01_java_script_algorithms_and_data_structures/03_telephone_number_validator/index.html">
             03 Telephone Number Validator
           </a>
         </li>
         <li>
-          <a
-            href="./01_java_script_algorithms_and_data_structures/04_cash_register/index.html"
-          >
+          <a href="./01_java_script_algorithms_and_data_structures/04_cash_register/index.html">
             04 Cash Register
           </a>
         </li>
@@ -128,9 +96,7 @@
           </a>
         </li>
         <li>
-          <a
-            href="./02_front_end_libraries/03_javascript_calculator/index.html"
-          >
+          <a href="./02_front_end_libraries/03_javascript_calculator/index.html">
             03 JavaScript Calculator
           </a>
         </li>
@@ -140,6 +106,6 @@
           </a>
         </li>
       </ul>
-    </div>
-  </body>
-</html>
+    </Container>
+  );
+}
