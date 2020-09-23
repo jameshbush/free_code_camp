@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home } from "./Home";
 import { TestDemo } from "./TestDemo";
-import { certificationsData } from "./certifications";
+import { certificationsData } from "./certificationsData";
 
 interface IProps {}
 interface IState {}

@@ -6,7 +6,7 @@ const AlgorithmSolution = (): JSX.Element => {
     <div>
       <Link to="/">Home</Link>
 
-      <div>Question</div>
+      <div>Name</div>
       <br />
       <code>Solution</code>
       <br />

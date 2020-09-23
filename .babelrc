@@ -13,6 +13,12 @@
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-object-assign",
-    "@babel/plugin-proposal-object-rest-spread"
+    "@babel/plugin-proposal-object-rest-spread",
+    ["prismjs", {
+      "languages": ["javascript", "css", "html"],
+      "plugins": ["line-numbers", "show-language"],
+      "theme": "okaidia",
+      "css": true
+    }]
   ]
 }

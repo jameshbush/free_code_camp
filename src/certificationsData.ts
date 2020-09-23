@@ -5,6 +5,7 @@ import { ProductLandingPage } from "./00_responsive_web_design/02_product_landin
 import { TechnicalDocumentation } from "./00_responsive_web_design/03_technical_documentation/TechnicalDocumentation";
 import { PersonalPortfolio } from "./00_responsive_web_design/04_personal_portfolio_page/PersonalPortfolio";
 import { AlgorithmSolution } from "./01_java_script_algorithms_and_data_structures/AlgorithmSolution";
+import { PalendromeChecker } from "./01_java_script_algorithms_and_data_structures/00_palendrome_checker/PalendromeChecker";
 
 const P_00 = "/00_responsive_web_design";
 const P_01 = "/01_java_script_algorithms_and_data_structures";
@@ -55,7 +56,7 @@ const certificationsData: ICertificationProps[] = [
       {
         path: `${P_01}/00_palendrome_checker`,
         name: "00 Palindrome Checker",
-        component: AlgorithmSolution,
+        component: PalendromeChecker,
       },
       {
         path: `${P_01}/01_roman_numeral_converter`,

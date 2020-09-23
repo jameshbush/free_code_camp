@@ -2,12 +2,13 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import { certificationsData } from "./certifications";
+import { certificationsData } from "./certificationsData";
 
 export interface IHomeProps {}
 interface IRoutable {
   path: string;
-  component?: (props: any, state: any) => JSX.Element;
+  component: any;
+  // component?: (props: any, state: any) => JSX.Element;
 }
 export interface ICertificationProps extends IRoutable {
   name: string;
