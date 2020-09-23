@@ -1,45 +1,105 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
-interface IProps {}
+const certifications = [
+  {
+    name: "00 Responsive Web Design",
+    description:
+      "This certification covers basic HTML & CSS. I greatly improved my knowledge of flexbox and all things CSS.",
+    projects: [
+      {
+        name: "00 Tribute Page",
+        route: "/00_responsive_web_design/00_tribute_page",
+      },
+      {
+        name: "01 Survey Form",
+        route: "/00_responsive_web_design/01_survey_form",
+      },
+      {
+        name: "02 Project Landing Page",
+        route: "/00_responsive_web_design/02_product_landing_page",
+      },
+      {
+        name: "03 Technical Documentation",
+        route: "/00_responsive_web_design/03_technical_documentation",
+      },
+      {
+        name: "04 Personal Portfolio",
+        route: "/00_responsive_web_design/04_personal_portfolio_page",
+      },
+    ],
+  },
+];
 
-export default function Home(props: IProps) {
+interface IHomeProps {}
+
+interface ICertificationProps {
+  name: string;
+  description: string;
+  projects: IProjectProps[];
+}
+interface IProjectProps {
+  name: string;
+  route: string;
+}
+
+const Certification = (props: ICertificationProps): JSX.Element => (
+  <div>
+    <h2>{props.name}</h2>
+    <p>{props.description}</p>
+    <ul>{props.projects.map((project) => Project(project))}</ul>
+  </div>
+);
+
+const Project = (props: IProjectProps): JSX.Element => (
+  <li>
+    <Link to={`${props.route}/project-route`}>{props.name}</Link>
+  </li>
+);
+
+export function Home(props: IHomeProps) {
   return (
     <Container>
       <h1 className="text-center">Home Page</h1>
-      <h2>00 Responsive Web Design</h2>
+      {certifications.map((certification) => Certification(certification))}
+      {/* Project 00 */}
+      {/* <h2>00 Responsive Web Design</h2>
       <p>
         The initial projects cover basic HTML & CSS. I greatly improved my
         knowledge of flexbox and all things CSS.
       </p>
       <ul>
         <li>
-          <a href="./00_responsive_web_design/00_tribute_page/index.html">
+          <Link to="/00_responsive_web_design/00_tribute_page">
             00 Tribute Page
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="./00_responsive_web_design/01_survey_form/index.html">
+          <Link to="./00_responsive_web_design/01_survey_form">
             01 Survey Form
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="./00_responsive_web_design/02_product_landing_page/index.html">
+          <Link to="./00_responsive_web_design/02_product_landing_page">
             02 Project Landing Page
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="./00_responsive_web_design/03_technical_documentation/index.html">
+          <Link to="./00_responsive_web_design/03_technical_documentation">
             03 Technical Documentation
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="./00_responsive_web_design/04_personal_portfolio_page/index.html">
+          <Link to="./00_responsive_web_design/04_personal_portfolio_page">
             04 Personal Portfolio
-          </a>
+          </Link>
         </li>
-      </ul>
+      </ul> */}
+
+      {/* Project 01 */}
+
       <h2>01 JavaScript Algorithms and Data Structures</h2>
       <p>
         The second project dives into the JavaScript programming language. I was
@@ -74,6 +134,9 @@ export default function Home(props: IProps) {
           </a>
         </li>
       </ul>
+
+      {/* Project 02 */}
+
       <h2>02 Front End Libraries</h2>
       <p>
         I got the tests passing with plain JavaScript, but I want to redo these
