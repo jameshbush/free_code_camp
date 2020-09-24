@@ -33,7 +33,7 @@ function assertEqual(a, b) {
   }
 }
 
-function telephoneCheckTest() {
+function testTelephoneCheck() {
   assertEqual(telephoneCheck("1 555-555-5555"), true);
   assertEqual(telephoneCheck("1 (555) 555-5555"), true);
   assertEqual(telephoneCheck("1(555)555-5555"), true);
@@ -64,3 +64,5 @@ function telephoneCheckTest() {
   assertEqual(telephoneCheck("(555-555-5555"), false);
   assertEqual(telephoneCheck("(555)5(55?)-5555"), false);
 }
+
+export { telephoneCheck, testTelephoneCheck };

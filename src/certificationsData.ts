@@ -5,6 +5,10 @@ import { ProductLandingPage } from "./00_responsive_web_design/02_product_landin
 import { TechnicalDocumentation } from "./00_responsive_web_design/03_technical_documentation/TechnicalDocumentation";
 import { PersonalPortfolio } from "./00_responsive_web_design/04_personal_portfolio_page/PersonalPortfolio";
 import { PalendromeChecker } from "./01_java_script_algorithms_and_data_structures/00_palendrome_checker/PalendromeChecker";
+import { RomanNumeralConverter } from "./01_java_script_algorithms_and_data_structures/01_roman_numeral_converter/RomanNumeralConverter";
+import { CaesarsCipher } from "./01_java_script_algorithms_and_data_structures/02_caesars_cipher/CaesarsCipher";
+import { TelephoneNumberValidator } from "./01_java_script_algorithms_and_data_structures/03_telephone_number_validator/TelephoneNumberValidator";
+import { CashRegister } from "./01_java_script_algorithms_and_data_structures/04_cash_register/CashRegister";
 
 const P_00 = "/00_responsive_web_design";
 const P_01 = "/01_java_script_algorithms_and_data_structures";
@@ -60,22 +64,22 @@ const certificationsData: ICertificationProps[] = [
       {
         path: `${P_01}/01_roman_numeral_converter`,
         name: "01 Roman Numeral Converter",
-        component: PalendromeChecker,
+        component: RomanNumeralConverter,
       },
       {
         path: `${P_01}/02_caesars_cipher`,
         name: "02 Caesar's Cipher",
-        component: PalendromeChecker,
+        component: CaesarsCipher,
       },
       {
         path: `${P_01}/03_telephone_number_validator`,
         name: "03 Telephone Number Validator",
-        component: PalendromeChecker,
+        component: TelephoneNumberValidator,
       },
       {
         path: `${P_01}/04_cash_register`,
         name: "04 Cash Register",
-        component: PalendromeChecker,
+        component: CashRegister,
       },
     ],
   },
