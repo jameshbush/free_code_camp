@@ -4,7 +4,6 @@ import { SurveyForm } from "./00_responsive_web_design/01_survey_form/SurveyForm
 import { ProductLandingPage } from "./00_responsive_web_design/02_product_landing_page/ProductLandingPage";
 import { TechnicalDocumentation } from "./00_responsive_web_design/03_technical_documentation/TechnicalDocumentation";
 import { PersonalPortfolio } from "./00_responsive_web_design/04_personal_portfolio_page/PersonalPortfolio";
-import { AlgorithmSolution } from "./01_java_script_algorithms_and_data_structures/AlgorithmSolution";
 import { PalendromeChecker } from "./01_java_script_algorithms_and_data_structures/00_palendrome_checker/PalendromeChecker";
 
 const P_00 = "/00_responsive_web_design";
@@ -13,7 +12,7 @@ const P_02 = "/02_front_end_libraries";
 
 const certificationsData: ICertificationProps[] = [
   {
-    path: `${P_00}`,
+    path: P_00,
     name: "00 Responsive Web Design",
     component: undefined,
     description:
@@ -47,7 +46,7 @@ const certificationsData: ICertificationProps[] = [
     ],
   },
   {
-    path: `${P_01}`,
+    path: P_01,
     name: "01 JavaScript Algorithms and Data Structures",
     component: undefined,
     description:
@@ -61,27 +60,27 @@ const certificationsData: ICertificationProps[] = [
       {
         path: `${P_01}/01_roman_numeral_converter`,
         name: "01 Roman Numeral Converter",
-        component: AlgorithmSolution,
+        component: PalendromeChecker,
       },
       {
         path: `${P_01}/02_caesars_cipher`,
         name: "02 Caesar's Cipher",
-        component: AlgorithmSolution,
+        component: PalendromeChecker,
       },
       {
         path: `${P_01}/03_telephone_number_validator`,
         name: "03 Telephone Number Validator",
-        component: AlgorithmSolution,
+        component: PalendromeChecker,
       },
       {
         path: `${P_01}/04_cash_register`,
         name: "04 Cash Register",
-        component: AlgorithmSolution,
+        component: PalendromeChecker,
       },
     ],
   },
   {
-    path: "/02_front_end_libraries",
+    path: P_02,
     name: "02 Front End Libraries",
     description:
       "I got the tests passing with plain JavaScript, but I want to redo these in React before claiming the certificate.",

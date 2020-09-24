@@ -11,7 +11,7 @@ function palindrome(str) {
   return true;
 }
 
-function palindromeTest() {
+function testPalindrome() {
   function assertEqual(argument, expectation) {
     if (palindrome(argument) !== expectation) {
       const msg = `palindrome(${argument}) does not equal ${expectation}`;
@@ -36,4 +36,4 @@ function palindromeTest() {
   ].forEach(([argument, expectation]) => assertEqual(argument, expectation));
 }
 
-export { palindrome, palindromeTest };
+export { palindrome, testPalindrome };
