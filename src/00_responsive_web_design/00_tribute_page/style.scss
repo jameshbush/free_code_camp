@@ -1,4 +1,4 @@
-body#main {
+#main {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   max-width: 500px;
   padding: 1em;
@@ -6,12 +6,9 @@ body#main {
   line-height: 133%;
 }
 
-h1 {
+#title {
   font-size: 1.6em;
   padding: 3mm;
-}
-
-#title {
   text-align: center;
 }
 
