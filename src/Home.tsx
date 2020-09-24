@@ -29,14 +29,32 @@ const Certification = (props: ICertificationProps): JSX.Element => (
   <div>
     <h2>{props.name}</h2>
     <p>{props.description}</p>
-    <ul>{props.projects.map((project) => Project(project))}</ul>
+    <ul>
+      {props.projects.map((project) => (
+        <Project
+          path={project.path}
+          name={project.name}
+          component={project.component}
+          key={project.path}
+        />
+      ))}
+    </ul>
   </div>
 );
 
 const Home = (props: IHomeProps): JSX.Element => (
   <Container>
     <h1 className="text-center">Home Page</h1>
-    {certificationsData.map((certification) => Certification(certification))}
+    {certificationsData.map((certification) => (
+      <Certification
+        path={certification.path}
+        name={certification.name}
+        component={certification.component}
+        description={certification.description}
+        projects={certification.projects}
+        key={certification.path}
+      />
+    ))}
   </Container>
 );
 
