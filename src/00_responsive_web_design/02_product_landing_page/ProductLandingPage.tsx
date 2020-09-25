@@ -145,7 +145,7 @@ const ProductLandingPage = () => (
       <h1>Demo Product Landing Page</h1>
     </main>
 
-    {/* <script src="../../../utils/takeMeHomeNavBar.js"></script>
+    {/* <script src="../../../utils/scripts/takeMeHomeNavBar.js"></script>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> */}
   </body>
 );

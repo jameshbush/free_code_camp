@@ -1,19 +1,11 @@
 import React from "react";
+import { injectFCCTests } from "../../utils/scripts/injectFCCTests";
 import "./style.scss";
 import githubLogo from "../../utils/staticPhotos/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png";
 import profilePic from "../../utils/staticPhotos/profile_pic.jpg";
 
-const FCC_TESTS =
-  "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
-
 class TributePage extends React.Component {
-  componentDidMount() {
-    // TODO: convert to hooks https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx
-    const script = document.createElement("script");
-    script.src = FCC_TESTS;
-    script.async = true;
-    document.body.appendChild(script);
-  }
+  componentDidMount = () => injectFCCTests();
 
   render() {
     return (
