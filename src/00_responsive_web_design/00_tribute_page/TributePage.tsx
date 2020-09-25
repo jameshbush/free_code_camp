@@ -1,11 +1,11 @@
 import React from "react";
-import { injectFCCTests } from "../../utils/scripts/injectFCCTests";
+import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
 import "./style.scss";
 import githubLogo from "../../utils/staticPhotos/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png";
 import profilePic from "../../utils/staticPhotos/profile_pic.jpg";
 
 class TributePage extends React.Component {
-  componentDidMount = () => injectFCCTests();
+  componentDidMount = () => initializeTestRunner("tribute-page", "run");
 
   render() {
     return (
