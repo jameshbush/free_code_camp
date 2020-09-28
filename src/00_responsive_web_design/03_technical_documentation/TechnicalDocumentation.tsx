@@ -11,7 +11,7 @@ class TechnicalDocumentation extends React.Component {
         <p id="test-info">(Page width must be {">"} 865px for tests to pass)</p>
 
         <div id="Topic_0"></div>
-        <nav id="navbar">
+        <nav id="navbar" className="docs-navbar">
           <header>
             <h5>Topics</h5>
           </header>
