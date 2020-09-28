@@ -1,15 +1,82 @@
+body {
+  margin: 0 !important;
+  font-family: LyonDisplay, Georgia, serif;
+}
+
 nav#navbar {
-    float: left;
-    width: 5em;
+  background: inherit !important;
+  position: fixed;
+  width: 7em !important;
+  height: 100%;
+  border-right: 0.6mm solid lightgray;
+
+  header {
+    position: static !important;
+    color: #222;
+    padding: 2mm;
+  }
+
+  .nav-link {
+    padding: 2mm;
+    font-size: 1.1em;
+    color: #666;
+    margin: 0 0 0 0.4em;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 main#main-doc {
-    float: inline-start;
-    width: 30em;
+  margin: 0 0 0 6em;
+  padding: 0 2em 0 2em;
+  max-width: 666px;
+
+  #Topic_1 {
+    .sub-header {
+      margin: 0 !important;
+      padding-top: 1mm;
+    }
+  }
+
+  .main-section {
+    .sub-header {
+      margin: 1.5em 0 0 0 !important;
+      height: 50px !important;
+
+      position: static;
+      margin: 1cm 0 0.5cm 0;
+      font-size: 2em;
+      font-weight: 400;
+      line-height: 1.3em;
+    }
+
+    p,
+    code,
+    ul {
+      margin: 1.5em 0;
+    }
+  }
 }
 
-@media(max-width: 855.33px) {
-    main#main-doc {
-        margin-top: 10px;
-    }
+header {
+  border: none !important;
+}
+
+#test-info {
+  display: none;
+  float: right;
+}
+
+@media (min-width: 865px) {
+  main#main-doc {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 865px) {
+  #test-info {
+    display: block;
+  }
 }
