@@ -1,8 +1,10 @@
 import React from "react";
-import "./styles.css";
+import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import "./styles.scss";
 
-const PersonalPortfolio = () => {
-  return (
+class PersonalPortfolio extends React.Component {
+  componentDidMount = () => initializeTestRunner("portfolio", "run");
+  render = () => (
     <div>
       <nav id="navbar">
         <a className="nav-link" href="#welcome-section">
@@ -70,11 +72,8 @@ const PersonalPortfolio = () => {
           </a>
         </div>
       </section>
-
-      {/* <script src="../../../utils/scripts/takeMeHomeNavBar.js"></script>
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> */}
     </div>
   );
-};
+}
 
 export { PersonalPortfolio };
