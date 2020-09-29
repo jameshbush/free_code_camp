@@ -1,8 +1,9 @@
 import React from "react";
-import { palindrome, testPalindrome } from "./palindrome_checker";
 import { AlgorithmDisplay } from "../AlgorithmDisplay";
 
 const PalendromeChecker = () => {
+  const { palindrome, testPalindrome } = (window as any).algorithms;
+
   return (
     <AlgorithmDisplay
       name="Palendrome Checker"

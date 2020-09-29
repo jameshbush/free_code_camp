@@ -1,8 +1,9 @@
 import React from "react";
-import { rot13, testRot13 } from "./02_caesars_cipher";
 import { AlgorithmDisplay } from "../AlgorithmDisplay";
 
 const CaesarsCipher = () => {
+  const { rot13, testRot13 } = (window as any).algorithms;
+
   return (
     <AlgorithmDisplay
       name="Caesar's Cipher"

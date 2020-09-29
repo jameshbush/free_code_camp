@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  telephoneCheck,
-  testTelephoneCheck,
-} from "./03_telephone_number_validator.js";
 import { AlgorithmDisplay } from "../AlgorithmDisplay";
 
 const TelephoneNumberValidator = () => {
+  const { telephoneCheck, testTelephoneCheck } = (window as any).algorithms;
+
   return (
     <AlgorithmDisplay
       name="Telephone Number Validator"

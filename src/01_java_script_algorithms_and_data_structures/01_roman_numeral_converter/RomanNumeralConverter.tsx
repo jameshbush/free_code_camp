@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  convertToRoman,
-  testConvertToRoman,
-} from "./01_roman_numeral_converter";
 import { AlgorithmDisplay } from "../AlgorithmDisplay";
 
 const RomanNumeralConverter = () => {
+  const { convertToRoman, testConvertToRoman } = (window as any).algorithms;
+
   return (
     <AlgorithmDisplay
       name="Roman Numeral Converter"
