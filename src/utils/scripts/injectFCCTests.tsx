@@ -4,16 +4,19 @@ const FCC_TESTS_URL =
 type RunOption = "run" | "skip";
 type TestOption =
   | undefined
+  // responsive web design
   | "tribute-page"
   | "portfolio"
   | "survey-form"
   | "product-landing-page"
   | "technical-docs-page"
+  // front end libraries
   | "random-quote-machine"
   | "markdown-previewer"
   | "drum-machine"
   | "25-5-clock"
   | "javascript-calculator"
+  // data visualization
   | "bar-chart"
   | "scatter-plot"
   | "heat-map"
