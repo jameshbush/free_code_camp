@@ -1,0 +1,16 @@
+#editor,
+#preview {
+  resize: none;
+}
+@media (min-width: 991px) {
+  #editor,
+  #preview {
+    height: 82vh !important;
+  }
+}
+@media (max-width: 991px) {
+  #editor,
+  #preview {
+    height: 40vh !important;
+  }
+}

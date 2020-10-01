@@ -10,6 +10,7 @@ import { CaesarsCipher } from "./01_java_script_algorithms_and_data_structures/0
 import { TelephoneNumberValidator } from "./01_java_script_algorithms_and_data_structures/03_telephone_number_validator/TelephoneNumberValidator";
 import { CashRegister } from "./01_java_script_algorithms_and_data_structures/04_cash_register/CashRegister";
 import { RandomQuoteMachine } from "./02_front_end_libraries/00_random_quote_machine/RandomQuoteMachine";
+import { MarkdownPreviewer } from "./02_front_end_libraries/01_markdown_previewer/MarkdownPreviewer";
 
 const P_00 = "/00_responsive_web_design";
 const P_01 = "/01_java_script_algorithms_and_data_structures";
@@ -99,7 +100,7 @@ const certificationsData: ICertificationProps[] = [
       {
         path: `${P_02}/01_markdown_previewer`,
         name: "01 Markdown Previewer",
-        component: TributePage,
+        component: MarkdownPreviewer,
       },
       {
         path: `${P_02}/02_drum_machine`,
