@@ -14,17 +14,26 @@ class DrumMachine extends React.Component<undefined, IDrumMachineState> {
       currentSoundId: null,
     };
     this.playSound = this.playSound.bind(this);
+    this.playKeyPress = this.playKeyPress.bind(this);
   }
 
   componentDidMount() {
     initializeTestRunner("drum-machine");
-    document.addEventListener("keydown", ({ key }) => {
-      const drumPad = drumPads.find(({ keyId }) => keyId === key.toUpperCase());
-      if (!drumPad) {
-        return;
-      }
-      this.playSound(drumPad);
-    });
+    document.addEventListener("keydown", this.playKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.playKeyPress);
+  }
+
+  playKeyPress(ev: KeyboardEvent) {
+    const drumPad = drumPads.find(
+      ({ keyId }) => keyId === ev.key.toUpperCase()
+    );
+    if (!drumPad) {
+      return;
+    }
+    this.playSound(drumPad);
   }
 
   playSound({ soundId, keyId }: IDrumPad) {
