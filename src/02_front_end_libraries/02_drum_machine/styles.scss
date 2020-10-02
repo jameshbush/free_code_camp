@@ -1,42 +1,58 @@
-.wrapper {
+#drum-machine .list-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  height: 80vh;
+
+  .drum-pad {
+    border-radius: 9px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
+    font-weight: bold;
+    font-size: 36px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
+  
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: darkgray;
+  }
 }
-#Q {
-  grid-column: 1 / 3;
-  grid-row: 1;
+
+#hi-hat-cerrado {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Hi-hat_clutch_on_a_cymbal.JPG/800px-Hi-hat_clutch_on_a_cymbal.JPG");
+  background-position-x: right;
 }
-#W {
-  grid-column: 2 / 4;
-  grid-row: 1 / 3;
+#hi-hat-abierto {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Hi-hat_clutch_on_a_cymbal.JPG/800px-Hi-hat_clutch_on_a_cymbal.JPG");
+  background-position-x: left;
 }
-#E {
-  grid-column: 1;
-  grid-row: 2 / 5;
+#crash {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b6/Zildjiancrash.jpg");
+  background-position-x: center;
 }
-#A {
-  grid-column: 3;
-  grid-row: 3;
+#tom-medio {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/10%22_TomTom.JPG/800px-10%22_TomTom.JPG");
+  background-position-x: right;
 }
-#S {
-  grid-column: 2;
-  grid-row: 4;
+#tom-agudo {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/10%22_TomTom.JPG/800px-10%22_TomTom.JPG");
+  background-position-x: center;
 }
-#D {
-  grid-column: 3;
-  grid-row: 4;
+#tom-grave {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/10%22_TomTom.JPG/800px-10%22_TomTom.JPG");
+  background-position-x: left;
 }
-#Z {
-  grid-column: 3;
-  grid-row: 3;
+#redoblante {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/2006-07-06_snare_14.jpg/800px-2006-07-06_snare_14.jpg");
+  background-position-x: -2mm;;
 }
-#X {
-  grid-column: 2;
-  grid-row: 4;
+#cowbell {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/46/Koebel.jpg");
+  background-position-x: -1mm;;
 }
-#C {
-  grid-column: 3;
-  grid-row: 4;
+#cbtrig {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Roland_TR-808_%28large%29.jpg/800px-Roland_TR-808_%28large%29.jpg");
+  background-position-x: left;
 }

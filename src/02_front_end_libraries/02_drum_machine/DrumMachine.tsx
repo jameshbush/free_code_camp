@@ -55,7 +55,7 @@ class DrumMachine extends React.Component<undefined, IDrumMachineState> {
                 <div id="display">
                   {this.state.currentSoundId ?? "Click or press a key"}
                 </div>
-                <ul className="list-group wrapper">
+                <ul className="list-group">
                   {drumPads.map((drumPad) => {
                     return DrumPad({ drumPad, playSound: this.playSound });
                   })}

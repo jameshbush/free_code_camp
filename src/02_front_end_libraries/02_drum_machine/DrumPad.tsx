@@ -71,7 +71,7 @@ const drumPads: IDrumPad[] = [
   },
   {
     keyId: "C",
-    soundId: "808cbtrig",
+    soundId: "cbtrig",
     src: "https://upload.wikimedia.org/wikipedia/commons/c/c7/808cbtrig_01.ogg",
   },
 ];
