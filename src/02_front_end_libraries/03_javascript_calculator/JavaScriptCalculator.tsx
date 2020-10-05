@@ -1,3 +1,6 @@
+//@ts-nocheck
+//@ts-ignore
+
 import { CalcButton } from "./CalcButton";
 import React from "react";
 import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
@@ -49,7 +52,11 @@ class JavaScriptCalculator extends React.Component<
       return ["0"];
     }
     if (input === "=") {
+      // @ts-ignore-start
+      /* tslint:disable */
       return [eval(equation.join(" "))];
+      /* tslint:enable */
+      // @ts-ignore-end
     }
     if (isDecimal(input)) {
       if (CONTAINS_DECIMAL_REGEX.test(lastEl)) {
