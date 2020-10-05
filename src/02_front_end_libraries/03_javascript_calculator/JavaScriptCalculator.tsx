@@ -54,7 +54,8 @@ class JavaScriptCalculator extends React.Component<
     if (input === "=") {
       // @ts-ignore-start
       /* tslint:disable */
-      return [eval(equation.join(" "))];
+      const indirectEval = eval;
+      return [indirectEval(equation.join(" "))];
       /* tslint:enable */
       // @ts-ignore-end
     }
