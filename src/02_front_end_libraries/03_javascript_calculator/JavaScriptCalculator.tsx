@@ -1,6 +1,3 @@
-//@ts-nocheck
-//@ts-ignore
-
 import { CalcButton } from "./CalcButton";
 import React from "react";
 import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
@@ -14,7 +11,6 @@ type Equation = EquationElement[];
 interface IJavaScriptCalculatorState {
   equation: Equation;
 }
-// const NU_OPERATION_REGEX = /-|\+|\*|\.|\*\*/;
 const OPERATION_REGEX = /^[-+*/.]|\*\*$/;
 const ZERO_REGEX = /^(0|-0)$/;
 const DIGIT_REGEX = /^\d$/;
@@ -52,12 +48,8 @@ class JavaScriptCalculator extends React.Component<
       return ["0"];
     }
     if (input === "=") {
-      // @ts-ignore-start
-      /* tslint:disable */
-      const indirectEval = eval;
-      return [indirectEval(equation.join(" "))];
-      /* tslint:enable */
-      // @ts-ignore-end
+      // eslint-disable-next-line
+      return [eval(equation.join(" "))];
     }
     if (isDecimal(input)) {
       if (CONTAINS_DECIMAL_REGEX.test(lastEl)) {
