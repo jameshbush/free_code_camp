@@ -13,6 +13,7 @@ import { RandomQuoteMachine } from "./02_front_end_libraries/00_random_quote_mac
 import { MarkdownPreviewer } from "./02_front_end_libraries/01_markdown_previewer/MarkdownPreviewer";
 import { DrumMachine } from "./02_front_end_libraries/02_drum_machine/DrumMachine";
 import { JavaScriptCalculator } from "./02_front_end_libraries/03_javascript_calculator/JavaScriptCalculator";
+import { PomodoroClock } from "./02_front_end_libraries/04_pomodoro_clock/PomodoroClock";
 
 const P_00 = "/00_responsive_web_design";
 const P_01 = "/01_java_script_algorithms_and_data_structures";
@@ -117,7 +118,7 @@ const certificationsData: ICertificationProps[] = [
       {
         path: `${P_02}/04_pomodoro_clock`,
         name: "04 Pomodoro Clock",
-        component: TributePage,
+        component: PomodoroClock,
       },
     ],
   },

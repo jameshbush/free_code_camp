@@ -1,0 +1,39 @@
+#tomato-clock {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  margin: 5mm 0 5mm 0;
+  
+  .grid {
+    margin: 5mm 0 5mm 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 4mm;
+    grid-row-gap: 5mm;
+
+    [id$="-label"] {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      text-align: right;
+      padding-right: 5mm;
+    }
+  }
+}
+
+// #clock-enclosure {
+//   height: 3.5in;
+//   width: 3.5in;
+//   border: 0.15in solid rgb(0, 155, 185);
+//   border-radius: 0.6in;
+// }
+
+// https://www.timetimer.com/collections/timers/products/time-timer-mod-sprint-edition
+// https://css-tricks.com/css-pie-timer/
+// #spinner {
+// border-radius: 100%;
+// background-color: red;
+// height: 80%;
+// width: 80%;
+// margin: 10%;
+// }
+// #clock-face {
+// }
