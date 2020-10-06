@@ -1,8 +1,16 @@
-# free_code_camp
+# jameshbush/free_code_camp
 
-Each Free Code Camp certification requires project work.
+This repo contains my freecodecamp.com Full-Stack Certification projects:
+1. Responsive Web Design
+1. Data Structures & Algos
+1. Front End Libraries
+1. Data Visualization
 
-I'm completing the projects here on GitHub.
-They are accessible at [https://www.jameshbush.com](https://www.jameshbush.com/index.html).
+Projects are hosted and accessible at [https://www.jameshbush.com](https://www.jameshbush.com)
 
-I'm tracking the work at [https://github.com/jameshbush/free_code_camp/projects/1](https://github.com/jameshbush/free_code_camp/projects/1)
+<br>
+
+## Additional Info
+- CI/CD for development/staging/prod with [Netlify](https://www.netlify.com/products/build/)
+- Projects are managed with GitHub projects [here](https://github.com/jameshbush/free_code_camp/projects/1)
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)

@@ -3,16 +3,27 @@
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
 [build]
-    functions = "functions"
+    command = "yarn build"
+    functions = "built-lambda"
+    publish = "build"
 
-[dev]
+# [dev]
   # Directory with the serverless Lambda functions to deploy to AWS.
-  functions = "functions"
+  # functions = "/src/lambda"
 
+# https://docs.netlify.com/routing/redirects
 [[redirects]]
     from = "/api/*"
-    to= "/.netlify/functions/:splat"
+    to = "/.netlify/functions/:splat"
+    status = 200
+# https://ui.dev/react-router-cannot-get-url-refresh
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
     status = 200
 
 [template.environment]
   SECRET_KEY = "Don't write me here!"
+
+[build.environment]
+  # https://docs.netlify.com/configure-builds/environment-variables/#netlify-configuration-variables

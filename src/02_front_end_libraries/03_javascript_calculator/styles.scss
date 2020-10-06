@@ -1,0 +1,38 @@
+#js-calculator {
+  font-size: 2.5em;
+  background: black;
+  color: #ddd;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  height: 100vh;
+  width: 100vw;
+  h1 {
+    font-weight: bold;
+  }
+  #display {
+    width: 100%;
+    word-wrap: break-word;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 4mm;
+    grid-row-gap: 4mm;
+    .input {
+      background: #222;
+      border: 3px solid #ddd;
+      border-radius: 0.5em;
+      text-align: center;
+    }
+    #equals {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  #js-calculator {
+    font-size: 4em;
+  }
+}
