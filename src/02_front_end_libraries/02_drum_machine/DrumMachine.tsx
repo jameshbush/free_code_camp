@@ -18,7 +18,7 @@ class DrumMachine extends React.Component<undefined, IDrumMachineState> {
   }
 
   componentDidMount() {
-    initializeTestRunner("drum-machine");
+    initializeTestRunner();
     document.addEventListener("keydown", this.playKeyPress);
   }
 

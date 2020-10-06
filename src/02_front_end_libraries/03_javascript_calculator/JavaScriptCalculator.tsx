@@ -18,10 +18,7 @@ const CLEAR_REGEX = /^C$/;
 const DECIMAL_REGEX = /^\.$/;
 const CONTAINS_DECIMAL_REGEX = /\./;
 
-class JavaScriptCalculator extends React.Component<
-  null,
-  IJavaScriptCalculatorState
-> {
+class JavaScriptCalculator extends React.Component<null, IJavaScriptCalculatorState> {
   constructor(props: null) {
     super(props);
     this.state = { equation: ["0"] };
@@ -29,7 +26,7 @@ class JavaScriptCalculator extends React.Component<
     this.handleClick = this.handleClick.bind(this);
     this.applyInputToEquation = this.applyInputToEquation.bind(this);
   }
-  componentDidMount = () => initializeTestRunner("javascript-calculator");
+  componentDidMount = () => initializeTestRunner();
 
   handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const input = (e.target as HTMLElement).innerText;
@@ -116,8 +113,7 @@ class JavaScriptCalculator extends React.Component<
   isDecimal = (str: string) => DECIMAL_REGEX.test(str);
   isDigit = (str: string) => DIGIT_REGEX.test(str);
   minusIsDigit = (equation: Equation) =>
-    equation[equation.length - 1] === "-" &&
-    this.isOperation(equation[equation.length - 2]);
+    equation[equation.length - 1] === "-" && this.isOperation(equation[equation.length - 2]);
 
   render() {
     const { equation } = this.state;
@@ -157,12 +153,7 @@ class JavaScriptCalculator extends React.Component<
           </div>
           <div className="wrapper">
             {buttons.map((button) => (
-              <CalcButton
-                key={button.id}
-                id={button.id}
-                text={button.text}
-                handleClick={handleClick}
-              />
+              <CalcButton key={button.id} id={button.id} text={button.text} handleClick={handleClick} />
             ))}
           </div>
         </div>

@@ -8,7 +8,7 @@ Documentation:
   https://reactjs.org/docs/forms.html
 */
 class SurveyForm extends React.Component {
-  componentDidMount = () => initializeTestRunner("survey-form", "run", 333);
+  componentDidMount = () => initializeTestRunner();
 
   render() {
     return (
@@ -20,38 +20,21 @@ class SurveyForm extends React.Component {
           <div className="form-group">
             <label id="name-label">
               Name:
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="John Smith"
-                required
-              />
+              <input type="text" name="name" id="name" placeholder="John Smith" required />
             </label>
           </div>
 
           <div className="form-group">
             <label id="email-label">
               Email:
-              <input
-                id="email"
-                type="email"
-                placeholder="john.smith@example.com"
-                required
-              />
+              <input id="email" type="email" placeholder="john.smith@example.com" required />
             </label>
           </div>
 
           <div className="form-group">
             <label id="number-label">
               Number (0-5)
-              <input
-                type="number"
-                id="number"
-                placeholder="5?"
-                min="0"
-                max="5"
-              />
+              <input type="number" id="number" placeholder="5?" min="0" max="5" />
             </label>
           </div>
 

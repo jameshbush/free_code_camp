@@ -29,7 +29,7 @@ class PomodoroClock extends React.Component<null, IPomodoroClockState> {
     super(props);
     this.state = INITIAL_CLOCK;
   }
-  componentDidMount = () => initializeTestRunner("25-5-clock", "skip");
+  componentDidMount = () => initializeTestRunner();
 
   // display
   roundMinutesDown = (seconds: number) => Math.floor(seconds / 60);

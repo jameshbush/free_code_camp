@@ -17,7 +17,7 @@ class MarkdownPreviewer extends React.Component<null, IStateMarkdownPreviewer> {
   }
 
   componentDidMount() {
-    initializeTestRunner("markdown-previewer", "run");
+    initializeTestRunner();
   }
 
   handleChange({ target: { value } }: React.ChangeEvent<HTMLTextAreaElement>) {

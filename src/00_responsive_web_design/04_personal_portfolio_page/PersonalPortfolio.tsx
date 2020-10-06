@@ -3,7 +3,7 @@ import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
 import "./styles.scss";
 
 class PersonalPortfolio extends React.Component {
-  componentDidMount = () => initializeTestRunner("portfolio", "run");
+  componentDidMount = () => initializeTestRunner();
   render = () => (
     <div>
       <nav id="navbar">
@@ -32,42 +32,27 @@ class PersonalPortfolio extends React.Component {
 
       <section id="projects">
         <div className="project-tile">
-          <a
-            href="../../00_responsive_web_design/04_personal_portfolio_page/index.html"
-            target="_blank"
-          >
+          <a href="../../00_responsive_web_design/04_personal_portfolio_page/index.html" target="_blank">
             Personal Portfolio (this page)
           </a>
         </div>
         <div className="project-tile">
-          <a
-            href="../../00_responsive_web_design/03_technical_documentation/index.html"
-            target="_blank"
-          >
+          <a href="../../00_responsive_web_design/03_technical_documentation/index.html" target="_blank">
             Technical Documentation
           </a>
         </div>
         <div className="project-tile">
-          <a
-            href="../../00_responsive_web_design/02_product_landing_page/index.html"
-            target="_blank"
-          >
+          <a href="../../00_responsive_web_design/02_product_landing_page/index.html" target="_blank">
             Product Landing Page
           </a>
         </div>
         <div className="project-tile">
-          <a
-            href="../../00_responsive_web_design/01_survey_form/index.html"
-            target="_blank"
-          >
+          <a href="../../00_responsive_web_design/01_survey_form/index.html" target="_blank">
             Survey Form
           </a>
         </div>
         <div className="project-tile">
-          <a
-            href="../../00_responsive_web_design/00_tribute_page/index.html"
-            target="_blank"
-          >
+          <a href="../../00_responsive_web_design/00_tribute_page/index.html" target="_blank">
             Tribute Page
           </a>
         </div>
