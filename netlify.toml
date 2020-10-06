@@ -11,6 +11,12 @@
   # Directory with the serverless Lambda functions to deploy to AWS.
   # functions = "/src/lambda"
 
+# https://docs.netlify.com/routing/redirects
+# https://ui.dev/react-router-cannot-get-url-refresh
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
 [[redirects]]
     from = "/api/*"
     to = "/.netlify/functions/:splat"
