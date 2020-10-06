@@ -11,7 +11,7 @@ interface IPomodoroClockState {
   active: ClockType;
 
   timer: null | NodeJS.Timeout;
-  timeout: number;
+  clockSpeed: number;
 }
 
 const INITIAL_CLOCK = {
@@ -21,7 +21,7 @@ const INITIAL_CLOCK = {
   active: "session" as ClockType,
 
   timer: null,
-  timeout: 1000,
+  clockSpeed: 1000,
 };
 
 class PomodoroClock extends React.Component<null, IPomodoroClockState> {
@@ -35,11 +35,12 @@ class PomodoroClock extends React.Component<null, IPomodoroClockState> {
   roundMinutesDown = (seconds: number) => Math.floor(seconds / 60);
   remainderSeconds = (seconds: number) => seconds % 60;
   displayTime = () => {
-    const seconds = this.state[this.getActiveLengthKey()] - this.state.current;
+    const seconds = this.calculateSecondsRemaining();
     const mins = this.roundMinutesDown(seconds);
     const secs = this.remainderSeconds(seconds);
     return [mins, secs].map((num) => (num < 10 ? `0${num}` : `${num}`)).join(":");
   };
+  calculateSecondsRemaining = () => this.state[this.getActiveLengthKey()] - this.state.current;
   displayActive = () => `${this.state.active[0].toUpperCase()}${this.state.active.slice(1)}`;
   getActiveLengthKey = () => `${this.state.active}Length` as "sessionLength" | "sessionLength";
 
@@ -59,15 +60,21 @@ class PomodoroClock extends React.Component<null, IPomodoroClockState> {
     if (length > 60 * 60) return;
     this.setState(() => ({ [key as "sessionLength"]: length }));
   };
+  setTurboClockSpeed = () => this.updateClockSpeed(1);
+  setNormalClockSpeed = () => this.updateClockSpeed(1000);
+  updateClockSpeed = (clockSpeed: number) => {
+    this.setState({ clockSpeed });
+    this.pauseTimer();
+  };
 
   // timer
   startTimer = () => {
     if (this.state.timer !== null) return;
-    const timer = setInterval(this.advanceTimer, this.state.timeout);
+    const timer = setInterval(this.advanceTimer, this.state.clockSpeed);
     this.setState({ timer });
   };
   advanceTimer = () => {
-    if (this.displayTime() === "00:00") {
+    if (this.calculateSecondsRemaining() <= 0) {
       this.getRewoundBell().play();
       const active = this.state.active === "session" ? "break" : "session";
       this.setState({ active, current: 0 });
@@ -118,11 +125,16 @@ class PomodoroClock extends React.Component<null, IPomodoroClockState> {
             <ControlButton id="break-decrement" text="-" onClick={decrementBreakLength} />
             <h5 id="break-length">{roundMinutesDown(breakLength)}</h5>
             <ControlButton id="break-increment" text="+" onClick={incrementBreakLength} />
+
+            <h4 id="break-label">Clock Speed</h4>
+            <ControlButton id="normal-speed" text="Normal" onClick={this.setNormalClockSpeed} />
+            <h4>{this.state.clockSpeed === 1000 ? "Normal" : "Turbo"}</h4>
+            <ControlButton id="turbo-speed" text="Turbo" onClick={this.setTurboClockSpeed} />
           </div>
 
           <audio
             id="beep"
-            src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Villeneuve-le-Comte_-_Cloche_de_l%27%C3%A9glise_Notre-Dame-de-la-Nativit%C3%A9.ogg"
+            src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Doorbell-classic-dingdong.ogg"
           ></audio>
         </div>
       </div>
