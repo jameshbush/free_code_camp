@@ -11,7 +11,7 @@ type Equation = EquationElement[];
 interface IJavaScriptCalculatorState {
   equation: Equation;
 }
-const OPERATION_REGEX = /^[-+*/.]|\*\*$/;
+const OPERATION_REGEX = /^[-+*/.]$|^\*\*$/;
 const ZERO_REGEX = /^(0|-0)$/;
 const DIGIT_REGEX = /^\d$/;
 const CLEAR_REGEX = /^C$/;
@@ -52,6 +52,12 @@ class JavaScriptCalculator extends React.Component<null, IJavaScriptCalculatorSt
       if (CONTAINS_DECIMAL_REGEX.test(lastEl)) {
         return [...rest, `${lastEl}`];
       }
+      if (isOperation(lastEl)) {
+        if (isMinus(lastEl)) {
+          return [...rest, `-0.`];
+        }
+        return [...equation, `0.`];
+      }
       return [...rest, `${lastEl}.`];
     }
 
@@ -87,6 +93,9 @@ class JavaScriptCalculator extends React.Component<null, IJavaScriptCalculatorSt
     if (isOperation(input)) {
       // if the entered element was a minus sign and the last element was an operation, append a minus
       if (isMinus(input) && isOperation(lastEl)) {
+        if (isMinus(equation[equation.length - 2])) {
+          return [...equation];
+        }
         return [...equation, "-"];
       }
 
