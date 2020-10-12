@@ -14,10 +14,12 @@ import { MarkdownPreviewer } from "./02_front_end_libraries/01_markdown_previewe
 import { DrumMachine } from "./02_front_end_libraries/02_drum_machine/DrumMachine";
 import { JavaScriptCalculator } from "./02_front_end_libraries/03_javascript_calculator/JavaScriptCalculator";
 import { PomodoroClock } from "./02_front_end_libraries/04_pomodoro_clock/PomodoroClock";
+import { BarChart } from "./03_data_visualization/00_bar_chart/BarChart";
 
 const P_00 = "/00_responsive_web_design";
 const P_01 = "/01_java_script_algorithms_and_data_structures";
 const P_02 = "/02_front_end_libraries";
+const P_03 = "/03_data_visualization";
 
 const certificationsData: ICertificationProps[] = [
   {
@@ -119,6 +121,39 @@ const certificationsData: ICertificationProps[] = [
         path: `${P_02}/04_pomodoro_clock`,
         name: "04 Pomodoro Clock",
         component: PomodoroClock,
+      },
+    ],
+  },
+  {
+    path: P_03,
+    name: "02 Data Visualization",
+    description: "I used D3 to render data visualizations gotten with fetch API.",
+    component: undefined,
+    projects: [
+      {
+        path: `${P_03}/00_bar_chart`,
+        name: "00 Bar Chart",
+        component: BarChart,
+      },
+      {
+        path: `${P_03}/01_scatterplot_graph`,
+        name: "01 Scatterplot Graph",
+        component: TributePage,
+      },
+      {
+        path: `${P_03}/02_heat_map`,
+        name: "02 Heat Map",
+        component: TributePage,
+      },
+      {
+        path: `${P_03}/03_choropleth_map`,
+        name: "03 Choropleth Map",
+        component: TributePage,
+      },
+      {
+        path: `${P_03}/04_treemap_diagram`,
+        name: "04 Treemap Diagram",
+        component: TributePage,
       },
     ],
   },
