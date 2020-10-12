@@ -14,7 +14,7 @@ import { MarkdownPreviewer } from "./02_front_end_libraries/01_markdown_previewe
 import { DrumMachine } from "./02_front_end_libraries/02_drum_machine/DrumMachine";
 import { JavaScriptCalculator } from "./02_front_end_libraries/03_javascript_calculator/JavaScriptCalculator";
 import { PomodoroClock } from "./02_front_end_libraries/04_pomodoro_clock/PomodoroClock";
-import { BarChart } from "./BarChart";
+import { BarChart } from "./03_data_visualization/00_bar_chart/BarChart";
 
 const P_00 = "/00_responsive_web_design";
 const P_01 = "/01_java_script_algorithms_and_data_structures";
