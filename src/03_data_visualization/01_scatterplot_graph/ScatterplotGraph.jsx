@@ -5,9 +5,22 @@ import "./styles.scss";
 
 const CYCLIST_API_ENDPOINT =
   "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json";
-const DOT_WIDTH = 3;
-
 const PADDING = 40;
+
+function OrdinalSuffixOf(i) {
+  var j = i % 10,
+    k = i % 100;
+  if (j === 1 && k !== 11) {
+    return i + "st";
+  }
+  if (j === 2 && k !== 12) {
+    return i + "nd";
+  }
+  if (j === 3 && k !== 13) {
+    return i + "rd";
+  }
+  return i + "th";
+}
 
 class ScatterplotGraph extends React.Component {
   async componentDidMount() {
@@ -18,14 +31,14 @@ class ScatterplotGraph extends React.Component {
 
   async drawChart() {
     let data = await fetch(CYCLIST_API_ENDPOINT).then((res) => res.json());
-    const { Time, Place, Seconds, Name, Year, Nationality, Doping, URL } = data[0];
-    console.log(data.map(({ Year }) => Year).sort());
+    // const { Time, Place, Seconds, Name, Year, Nationality, Doping, URL } = data[0];
+    // console.log(data.map(({ Year }) => Year).sort());
 
     const width = 680;
-    const hight = 680;
+    const height = 680;
     const padding = 45;
 
-    const svg = d3.select("#scatterplot-graph-svg").attr("width", width).attr("height", hight);
+    const svg = d3.select("#scatterplot-graph-svg").attr("width", width).attr("height", height);
 
     // Scale
     const xScale = d3
@@ -38,13 +51,13 @@ class ScatterplotGraph extends React.Component {
       .scaleLinear()
       .domain([d3.min(data, ({ Seconds }) => Seconds), d3.max(data, ({ Seconds }) => Seconds)])
       .nice()
-      .range([hight - padding, padding]);
+      .range([height - padding, padding]);
 
     // Axis
     svg
       .append("g")
       .attr("id", "x-axis")
-      .attr("transform", `translate(0, ${hight - padding})`)
+      .attr("transform", `translate(0, ${height - padding})`)
       .call(d3.axisBottom(xScale));
     svg
       .append("g")
@@ -91,17 +104,43 @@ class ScatterplotGraph extends React.Component {
       .on("mousemove", (_event, { Time, Place, Name, Year, Nationality, Doping, URL }) => {
         console.log(URL);
         tooltip
-          .text(`In ${Year}, ${Name} (${Nationality}) finished ${Place} in ${Time}`)
+          .text(`In ${Year}, ${Name} (${Nationality}) finished ${OrdinalSuffixOf(Place)} in ${Time}`)
           .attr("data-year", new Date([Year]));
         tooltipExtended.text(`${Doping} *`);
       });
 
+    // Legend
+    // https://www.d3-graph-gallery.com/graph/custom_legend.html
+    const nations = [...new Set(data.map(({ Nationality }) => Nationality))];
     svg
-      .append("text")
+      .append("rect")
       .attr("id", "legend")
-      .attr("x", width - padding - 50)
-      .attr("y", hight - padding - 20)
-      .style("opacity", 0.66).text`LEGEND`;
+      .attr("x", height - padding - 111)
+      .attr("y", width - padding - 305)
+      .attr("height", 300)
+      .attr("width", 100);
+
+    svg
+      .selectAll("mydots")
+      .data(nations)
+      .enter()
+      .append("circle")
+      .attr("class", (d) => d.toLowerCase())
+      .attr("r", 10)
+      .attr("cx", 550)
+      .attr("cy", (d, i, g) => padding + 40 + g.length * 25 + 25 * i);
+
+    svg
+      .selectAll("mylabels")
+      .data(nations)
+      .enter()
+      .append("text")
+      .attr("class", (d) => d.toLowerCase())
+      .attr("r", 10)
+      .text((d) => d)
+      .attr("font-type", "mono")
+      .attr("x", 565)
+      .attr("y", (_, i, g) => padding + 45 + g.length * 25 + 25 * i);
   }
 
   render() {

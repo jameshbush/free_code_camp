@@ -2,7 +2,6 @@
   display: block;
   margin: auto;
   background-color: lightgray;
-  border-radius: 5px;
   border: 1mm solid gray;
 }
 
@@ -41,4 +40,9 @@
 }
 .col {
   fill: blue;
+}
+
+#legend {
+  fill: lightgray;
+  outline: 1mm solid gray;
 }
