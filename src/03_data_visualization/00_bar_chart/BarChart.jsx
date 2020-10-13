@@ -8,7 +8,7 @@ const GDP_API_ENDPOINT =
 const BAR_WIDTH = 3;
 const BAR_SPACE = 3;
 
-const PADDING = 40;
+const PADDING = 60;
 const SCALING = 50;
 
 const DATE_INDEX = 0;
@@ -80,6 +80,16 @@ class BarChart extends React.Component {
       .attr("id", "y-axis")
       .attr("transform", `translate(${PADDING}, 0)`)
       .call(d3.axisLeft(yScale));
+
+    // axis label
+    svg
+      .append("text")
+      .attr("class", "axis-label")
+      .attr("y", 15)
+      .attr("x", -275)
+      .attr("transform", "rotate(-90)")
+      .text("GDP (billions)");
+    svg.append("text").attr("class", "axis-label").attr("y", 455).attr("x", 450).text("Year");
   }
 
   render() {
