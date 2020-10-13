@@ -15,6 +15,7 @@ import { DrumMachine } from "./02_front_end_libraries/02_drum_machine/DrumMachin
 import { JavaScriptCalculator } from "./02_front_end_libraries/03_javascript_calculator/JavaScriptCalculator";
 import { PomodoroClock } from "./02_front_end_libraries/04_pomodoro_clock/PomodoroClock";
 import { BarChart } from "./03_data_visualization/00_bar_chart/BarChart";
+import { ScatterplotGraph } from "./03_data_visualization/01_scatterplot_graph/ScatterplotGraph";
 
 const P_00 = "/00_responsive_web_design";
 const P_01 = "/01_java_script_algorithms_and_data_structures";
@@ -138,7 +139,7 @@ const certificationsData: ICertificationProps[] = [
       {
         path: `${P_03}/01_scatterplot_graph`,
         name: "01 Scatterplot Graph",
-        component: TributePage,
+        component: ScatterplotGraph,
       },
       {
         path: `${P_03}/02_heat_map`,

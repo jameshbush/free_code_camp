@@ -1,6 +1,11 @@
 #bar-chart-svg {
   display: block;
   margin: auto;
+
+  .axis-label {
+    font-size: 0.66em;
+    color: darkgray;
+  }
 }
 
 .bar {
