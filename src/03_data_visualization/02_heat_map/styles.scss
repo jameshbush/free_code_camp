@@ -1,0 +1,48 @@
+#scatterplot-graph-svg {
+  display: block;
+  margin: auto;
+  background-color: lightgray;
+  border: 1mm solid gray;
+}
+
+#tooltip {
+  font-size: 0.75em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#tooltip-extended {
+  font-size: 0.6em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dot {
+  fill: black;
+}
+.usa {
+  fill: navy;
+}
+.esp {
+  fill: red;
+}
+.ger {
+  fill: yellow;
+}
+.ita {
+  fill: green;
+}
+.fra {
+  fill: white;
+}
+.den {
+  fill: orange;
+}
+.sui {
+  fill: darkred;
+}
+.col {
+  fill: blue;
+}
+
+#legend {
+  fill: lightgray;
+  outline: 1mm solid gray;
+}
