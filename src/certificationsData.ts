@@ -27,8 +27,9 @@ const certificationsData: ICertificationProps[] = [
     path: P_00,
     name: "00 Responsive Web Design",
     component: undefined,
-    description:
-      "This certification covers basic HTML & CSS. I greatly improved my knowledge of flexbox and all things CSS.",
+    description: `This certification covers basic HTML & CSS.
+      While I'm comfortable implementing front-end logic, I have less experience with web design.
+      02 Product Landing Page, and 03 Technical Documentation are the most refined because they were the most interesting projects.`,
     projects: [
       {
         path: `${P_00}/00_tribute_page`,
@@ -61,8 +62,9 @@ const certificationsData: ICertificationProps[] = [
     path: P_01,
     name: "01 JavaScript Algorithms and Data Structures",
     component: undefined,
-    description:
-      "The second project dives into the JavaScript programming language. I was already comfortable with ES6, as well as common data structures, so these brain-teasers were mostly a review. By the way, if the check box is green, that means the tests are passing.",
+    description: `I am comfortable implementing data structures and algorithms using ES6.
+      When developing algorithms I minimize repeated code, use straightforward iteration, extract functions, use guard statements, and leverage data structures appropriately.
+      By the way, if the check box at the bottom of the UI is green, that means the tests are passing.`,
     projects: [
       {
         path: `${P_01}/00_palendrome_checker`,
@@ -94,8 +96,10 @@ const certificationsData: ICertificationProps[] = [
   {
     path: P_02,
     name: "02 Front End Libraries",
-    description:
-      "I got the tests passing with plain JavaScript, but I want to redo these in React before claiming the certificate.",
+    description: `Initially solved these problems using plain JavaScript. Then re-implemented in TypeScript/React.
+      00 Random Quote fetches data from a serverless API.
+      03 JavaScript Calculator has some fairly complicated input logic.
+      04 Pomodoro Clock has more complex state management.`,
     component: undefined,
     projects: [
       {
@@ -127,8 +131,8 @@ const certificationsData: ICertificationProps[] = [
   },
   {
     path: P_03,
-    name: "02 Data Visualization",
-    description: "I used D3 to render data visualizations gotten with fetch API.",
+    name: "03 Data Visualization",
+    description: "Visualizing data from external APIs using D3.js.",
     component: undefined,
     projects: [
       {
@@ -143,18 +147,21 @@ const certificationsData: ICertificationProps[] = [
       },
       {
         path: `${P_03}/02_heat_map`,
-        name: "02 Heat Map",
+        name: "02 Heat Map (under construction)",
         component: TributePage,
+        isDisabled: true,
       },
       {
         path: `${P_03}/03_choropleth_map`,
-        name: "03 Choropleth Map",
+        name: "03 Choropleth Map (under construction)",
         component: TributePage,
+        isDisabled: true,
       },
       {
         path: `${P_03}/04_treemap_diagram`,
-        name: "04 Treemap Diagram",
+        name: "04 Treemap Diagram (under construction)",
         component: TributePage,
+        isDisabled: true,
       },
     ],
   },
