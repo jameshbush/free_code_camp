@@ -17,13 +17,15 @@ export interface ICertificationProps extends IRoutable {
 }
 export interface IProjectProps extends IRoutable {
   name: string;
+  isDisabled?: true;
 }
 
-const Project = ({ path, name }: IProjectProps): JSX.Element => (
-  <li>
-    <Link to={path}>{name}</Link>
-  </li>
-);
+const Project = ({ path, name, isDisabled }: IProjectProps): JSX.Element | null =>
+  isDisabled ? null : (
+    <li>
+      <Link to={path}>{name}</Link>
+    </li>
+  );
 
 const Certification = (props: ICertificationProps): JSX.Element => (
   <div>
@@ -36,6 +38,7 @@ const Certification = (props: ICertificationProps): JSX.Element => (
           name={project.name}
           component={project.component}
           key={project.path}
+          isDisabled={project.isDisabled}
         />
       ))}
     </ul>
