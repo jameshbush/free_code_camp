@@ -2,7 +2,6 @@ import React from "react";
 import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
 import * as d3 from "d3";
 import "./styles.scss";
-// /home/b/Documents/free_code_camp/node_modules/@types/d3-selection/index.d.ts
 
 const TEMPERATURE_API_ENDPOINT =
   "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json";
@@ -17,20 +16,11 @@ class HeatMap extends React.Component {
   async drawChart() {
     let temperatureData = await fetch(TEMPERATURE_API_ENDPOINT).then((res) => res.json());
     const { monthlyVariance, baseTemperature } = temperatureData;
-    console.log(
-      baseTemperature,
-      monthlyVariance,
-      monthlyVariance[0].year,
-      monthlyVariance[0].month,
-      monthlyVariance[0].variance
-    );
 
-    // set the dimensions and margins of the graph
     var margin = { top: 80, right: 25, bottom: 30, left: 65 };
     var width = 1500 - margin.left - margin.right;
     var height = 400 - margin.top - margin.bottom;
 
-    // append the svg object to the body of the page
     var svg = d3
       .select("#heat-map-svg")
       .attr("width", width + margin.left + margin.right)
@@ -39,9 +29,8 @@ class HeatMap extends React.Component {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // X/Y/C SCALE
-    const years = [...new Set(d3.map(monthlyVariance, (d) => d.year))]; // ( 1953 ... 2015 )
+    const years = [...new Set(d3.map(monthlyVariance, (d) => d.year))]; // ( 1753 ... 2015 )
     const variances = [...new Set(d3.map(monthlyVariance, (d) => d.variance))]; // ( -6.976 ... 5.228 )
-    // console.log(years, variances);
 
     const MONTH_NAMES = [
       "January",
@@ -73,7 +62,7 @@ class HeatMap extends React.Component {
     var cScale = d3
       .scaleSequential()
       .interpolator(d3.interpolate("lightgreen", "darkred"))
-      .domain([d3.min(variances), d3.max(variances)]); // http://using-d3js.com/04_05_sequential_scales.html
+      .domain([d3.min(variances), d3.max(variances)]);
 
     // X/Y AXIS
     const AXIS_FONT_SIZE = 12;
@@ -96,39 +85,35 @@ class HeatMap extends React.Component {
 
     // Legend
     const LEGEND_WIDTH = 10;
-    const LEGEND_DATA = [d3.min(variances), d3.mean(variances), 0, d3.max(variances)];
-    svg
-      .append("rect")
-      .attr("x", 240)
-      .attr("y", -36)
-      .attr("height", 28)
-      .attr("width", 233)
-      .attr("id", "legend");
-      // .attr("background", "blue")
-      // .attr("fill", "blue");
+    const LEGEND_DATA = [-6, -3, 0, 3, 6];
 
-    svg
-      .selectAll("legend-rect")
+    const legend = svg.append("g").attr("id", "legend").attr("transform", `translate(240, -36)`);
+
+    legend
       .append("rect")
+      .attr("id", "legend-outline-rect")
+      .attr("height", 25)
+      .attr("width", LEGEND_DATA.length * 55 + 50);
+
+    legend
+      .selectAll()
       .data(LEGEND_DATA)
       .enter()
       .append("rect")
       .attr("fill", (d) => cScale(d))
-      .attr("x", (_, i) => 250 + i * (LEGEND_WIDTH + 50))
-      .attr("y", -28)
       .attr("height", LEGEND_WIDTH)
-      .attr("width", LEGEND_WIDTH);
-
-    svg
-      .selectAll("legend-text")
+      .attr("width", LEGEND_WIDTH)
+      .attr("class", "legend-rect")
+      .attr("transform", (_, i) => `translate(${20 + i * 60}, 8)`);
+    legend
+      .selectAll("text")
       .data(LEGEND_DATA)
       .enter()
       .append("text")
       .text((d) => d.toFixed(2))
-      .attr("x", (_, i) => 265 + i * (LEGEND_WIDTH + 50))
-      .attr("y", -20)
       .style("font-size", 12)
-      .attr("class", "bacon");
+      .attr("class", "legend-text")
+      .attr("transform", (_, i) => `translate(${35 + i * 60}, 16.5)`);
 
     // Tooltip
     var tooltip = d3
@@ -139,6 +124,7 @@ class HeatMap extends React.Component {
       .attr("class", "tooltip")
       .style("background", "#EEE")
       .style("border", "solid")
+      .style("font-family", "monospace")
       .style("border-width", "2px")
       .style("border-radius", "5px")
       .style("padding", "5px");
@@ -170,11 +156,9 @@ class HeatMap extends React.Component {
         d3.select(this).style("stroke", "black").style("opacity", 1);
       })
       .on("mousemove", (event, data) => {
-        // console.log(event, data);
         const [x, y] = d3.pointer(event);
-        // console.log(x, y);
         tooltip
-          .html(`The exact value of<br>this cell is: ${data.variance}`)
+          .html(`Variance: ${data.variance >= 0 ? "+" : ""}${data.variance.toFixed(2)} °C`)
           .style("left", `${x + 80}px`)
           .style("top", `${y + 160}px`)
           .attr("data-year", data.year)
@@ -192,7 +176,7 @@ class HeatMap extends React.Component {
       .attr("y", -50)
       .attr("text-anchor", "left")
       .style("font-size", "22px")
-      .text("A d3.js Heatmap");
+      .text("Heatmap of monthly temperature variation");
 
     // SUBTITLE
     svg
@@ -213,8 +197,9 @@ class HeatMap extends React.Component {
           <div className="col-12">
             <h1 id="title">Temperature Heat Map</h1>
             <p id="description">
-              How much is the earth heating? How does seasonality influence tempuratures? This shows two and a
-              half centuries of monthly world temperatures.
+              This chart shows 261.75 years of monthly world temperatures. Variance from the base temp (8.66
+              ℃) has decreased over time with a trend towards warmer temperatures. (the chart is best viewed
+              on a large screen where scrolling is not required)
             </p>
             <div id="heat-map-wrapper">
               <svg id="heat-map-svg" ref={(elem) => (this.svg = elem)}></svg>
