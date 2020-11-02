@@ -149,7 +149,7 @@ const certificationsData: ICertificationProps[] = [
       {
         path: `${P_03}/02_heat_map`,
         name: "02 Heat Map",
-        component: TributePage,
+        component: HeatMap,
       },
       {
         path: `${P_03}/03_choropleth_map`,
