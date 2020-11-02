@@ -1,0 +1,17 @@
+#heat-map-svg {
+  display: block;
+  margin: auto;
+
+  #legend {
+    #legend-outline-rect {
+      fill: lightgray;
+      outline: 1mm solid gray;
+    }
+    .legend-text {
+      stroke: black;
+    }
+    .legend-rect {
+      stroke: black;
+    }
+  }
+}
