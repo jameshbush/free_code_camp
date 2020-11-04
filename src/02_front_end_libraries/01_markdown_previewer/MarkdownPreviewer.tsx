@@ -1,6 +1,6 @@
 import React from "react";
 import marked from "marked";
-import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import { cleanUpTestRunner, initializeTestRunner } from "../../utils/scripts/injectFCCTests";
 import { INITIAL_MARKDOWN } from "./NotTheMarkdownPreviewer";
 import "./styles.scss";
 
@@ -19,6 +19,7 @@ class MarkdownPreviewer extends React.Component<null, IStateMarkdownPreviewer> {
   componentDidMount() {
     initializeTestRunner();
   }
+  componentWillUnmount = () => cleanUpTestRunner();
 
   handleChange({ target: { value } }: React.ChangeEvent<HTMLTextAreaElement>) {
     this.setState({ editor: value });
@@ -47,10 +48,7 @@ class MarkdownPreviewer extends React.Component<null, IStateMarkdownPreviewer> {
             </div>
             <div className="col-md-6">
               <h2 className="text-center">Preview</h2>
-              <p
-                id="preview"
-                dangerouslySetInnerHTML={{ __html: marked(this.state.editor) }}
-              />
+              <p id="preview" dangerouslySetInnerHTML={{ __html: marked(this.state.editor) }} />
             </div>
           </div>
         </div>

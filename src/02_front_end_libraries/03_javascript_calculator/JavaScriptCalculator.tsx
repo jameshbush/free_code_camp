@@ -1,6 +1,6 @@
 import { CalcButton } from "./CalcButton";
 import React from "react";
-import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import { cleanUpTestRunner, initializeTestRunner } from "../../utils/scripts/injectFCCTests";
 import "./styles.scss";
 
 type Operator = "+" | "-" | "*" | "/" | "^";
@@ -27,6 +27,7 @@ class JavaScriptCalculator extends React.Component<null, IJavaScriptCalculatorSt
     this.applyInputToEquation = this.applyInputToEquation.bind(this);
   }
   componentDidMount = () => initializeTestRunner();
+  componentWillUnmount = () => cleanUpTestRunner();
 
   handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const input = (e.target as HTMLElement).innerText;

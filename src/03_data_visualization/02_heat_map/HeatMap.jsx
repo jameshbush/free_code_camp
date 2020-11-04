@@ -1,5 +1,5 @@
 import React from "react";
-import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import { initializeTestRunner, cleanUpTestRunner } from "../../utils/scripts/injectFCCTests";
 import * as d3 from "d3";
 import "./styles.scss";
 
@@ -11,6 +11,7 @@ class HeatMap extends React.Component {
     initializeTestRunner();
     await this.drawChart();
   }
+  componentWillUnmount = () => cleanUpTestRunner();
   shouldComponentUpdate = () => false;
 
   async drawChart() {

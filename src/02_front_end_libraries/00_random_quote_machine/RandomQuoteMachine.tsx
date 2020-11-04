@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import { cleanUpTestRunner, initializeTestRunner } from "../../utils/scripts/injectFCCTests";
 
 interface IQuoteMachineState {
   text: string;
@@ -33,6 +33,7 @@ class RandomQuoteMachine extends React.Component<{}, IQuoteMachineState> {
     this.getRandomQuote();
     initializeTestRunner(undefined, "run");
   }
+  componentWillUnmount = () => cleanUpTestRunner();
 
   async getRandomQuote(): Promise<void> {
     return fetch("/api/random_quote")
@@ -72,11 +73,7 @@ class RandomQuoteMachine extends React.Component<{}, IQuoteMachineState> {
 
           <Row className="mt-3">
             <Col>
-              <button
-                id="new-quote"
-                className="btn btn-primary pull-left mr-2"
-                onClick={this.getRandomQuote}
-              >
+              <button id="new-quote" className="btn btn-primary pull-left mr-2" onClick={this.getRandomQuote}>
                 New Quote
               </button>
               <a

@@ -1,5 +1,4 @@
-const FCC_TESTS_URL =
-  "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
+const FCC_TESTS_URL = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
 
 type RunOption = "run" | "skip";
 type TestOption =
@@ -26,6 +25,7 @@ type TestOption =
 // TODO: convert to hooks https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx
 const injectFCCTests = () => {
   const script = document.createElement("script");
+  script.id = "fcc-tests";
   script.src = FCC_TESTS_URL;
   script.async = true;
 
@@ -69,4 +69,10 @@ const initializeTestRunner = (
   setTimeout(() => selectFCCTest(testOption, runOption), timeout);
 };
 
-export { initializeTestRunner };
+const cleanUpTestRunner = () => {
+  const script = document.getElementById("fcc-tests");
+  const div = document.getElementById("fcc_test_suite_wrapper");
+  [script, div].forEach((el) => el?.remove());
+};
+
+export { initializeTestRunner, cleanUpTestRunner };
