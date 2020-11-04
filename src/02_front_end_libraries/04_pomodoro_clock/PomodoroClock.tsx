@@ -1,5 +1,5 @@
 import React from "react";
-import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import { cleanUpTestRunner, initializeTestRunner } from "../../utils/scripts/injectFCCTests";
 import "./styles.scss";
 
 type ClockType = "session" | "break";
@@ -30,6 +30,7 @@ class PomodoroClock extends React.Component<null, IPomodoroClockState> {
     this.state = INITIAL_CLOCK;
   }
   componentDidMount = () => initializeTestRunner();
+  componentWillUnmount = () => cleanUpTestRunner();
 
   // display
   roundMinutesDown = (seconds: number) => Math.floor(seconds / 60);
@@ -103,7 +104,12 @@ class PomodoroClock extends React.Component<null, IPomodoroClockState> {
 
   render() {
     const { roundMinutesDown, displayTime, displayActive, reset, toggleTimer } = this;
-    const { decrementSessionLength, incrementSessionLength, decrementBreakLength, incrementBreakLength } = this;
+    const {
+      decrementSessionLength,
+      incrementSessionLength,
+      decrementBreakLength,
+      incrementBreakLength,
+    } = this;
     const { timer, sessionLength, breakLength } = this.state;
 
     return (

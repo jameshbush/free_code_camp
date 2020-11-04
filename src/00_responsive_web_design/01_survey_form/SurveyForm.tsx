@@ -1,5 +1,5 @@
 import React from "react";
-import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import { initializeTestRunner, cleanUpTestRunner } from "../../utils/scripts/injectFCCTests";
 import "./styles.css";
 import { Form } from "react-bootstrap";
 
@@ -9,6 +9,7 @@ Documentation:
 */
 class SurveyForm extends React.Component {
   componentDidMount = () => initializeTestRunner();
+  componentWillUnmount = () => cleanUpTestRunner();
 
   render() {
     return (

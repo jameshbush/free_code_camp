@@ -1,5 +1,5 @@
 import React from "react";
-import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import { cleanUpTestRunner, initializeTestRunner } from "../../utils/scripts/injectFCCTests";
 import { drumPads, DrumPad, IDrumPad } from "./DrumPad";
 import "./styles.scss";
 
@@ -24,6 +24,7 @@ class DrumMachine extends React.Component<undefined, IDrumMachineState> {
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.playKeyPress);
+    cleanUpTestRunner();
   }
 
   playKeyPress(ev: KeyboardEvent) {

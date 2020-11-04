@@ -1,9 +1,11 @@
 import React from "react";
-import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import { cleanUpTestRunner, initializeTestRunner } from "../../utils/scripts/injectFCCTests";
 import "./styles.scss";
 
 class PersonalPortfolio extends React.Component {
   componentDidMount = () => initializeTestRunner();
+  componentWillUnmount = () => cleanUpTestRunner();
+
   render = () => (
     <div>
       <nav id="navbar">

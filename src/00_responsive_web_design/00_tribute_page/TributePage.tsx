@@ -1,11 +1,12 @@
 import React from "react";
-import { initializeTestRunner } from "../../utils/scripts/injectFCCTests";
+import { initializeTestRunner, cleanUpTestRunner } from "../../utils/scripts/injectFCCTests";
 import "./style.scss";
 import githubLogo from "../../utils/staticPhotos/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png";
 import profilePic from "../../utils/staticPhotos/profile_pic.jpg";
 
 class TributePage extends React.Component {
   componentDidMount = () => initializeTestRunner();
+  componentWillUnmount = () => cleanUpTestRunner();
 
   render() {
     return (
@@ -18,9 +19,10 @@ class TributePage extends React.Component {
           </div>
           <div id="tribute-info">
             <p>
-              Jim loves using his technical skills to help people achieve their goals. Systems bring joy to his heart.
-              He enjoys the art of computer programming and solving problems. Whether he's learning something new or
-              using his favorite technologies, he always brings a high level of dedication and focus to his craft.
+              Jim loves using his technical skills to help people achieve their goals. Systems bring joy to
+              his heart. He enjoys the art of computer programming and solving problems. Whether he's learning
+              something new or using his favorite technologies, he always brings a high level of dedication
+              and focus to his craft.
             </p>
           </div>
           <a id="tribute-link" href="https://github.com/jameshbush" target="_blank" rel="noopener noreferrer">
