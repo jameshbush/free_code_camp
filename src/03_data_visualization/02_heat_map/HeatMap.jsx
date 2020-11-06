@@ -151,20 +151,20 @@ class HeatMap extends React.Component {
       .style("fill", (d) => cScale(d.variance))
       .style("stroke-width", RADIUS)
       .style("stroke", "none")
-      .on("mouseover", function (e) {
+      .on("mouseover", function () {
         tooltip.style("opacity", 1);
         d3.select(this).style("stroke", "black").style("opacity", 0.9);
         const [x, y] = [this.x.baseVal.value, this.y.baseVal.value];
         const { year, month, temp } = this.dataset;
 
         tooltip
-          .html(`Variance: ${temp >= 0 ? "+" : ""}${Number(temp).toFixed(2)} °C`)
-          .style("left", `${x * 1 + margin.left + 50}px`)
+          .html(`Variance: ${Number(temp) >= 0 ? "+" : ""}${Number(temp).toFixed(2)} °C`)
+          .style("left", `${x + margin.left + 50}px`)
           .style("top", `${y * 0.75 + margin.top + 200}px`)
           .attr("data-year", year)
           .attr("data-month", month);
       })
-      .on("mouseleave", function (d) {
+      .on("mouseleave", function () {
         tooltip.style("opacity", 0);
         d3.select(this).style("stroke", "none").style("opacity", 1);
       });
